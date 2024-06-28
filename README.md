@@ -1,12 +1,14 @@
 # 멋쟁이 사자처럼 Front-End School Plus 2기: TypeScript 프로그래밍
-* GitHub URL: https://github.com/uzoolove/FESP02-typescript
+* GitHub Page에서 보기: <https://uzoolove.github.io/FESP02-typescript>
+* 소스 코드(GitHub): <https://github.com/uzoolove/FESP02-typescript>
+* 예제 테스트(GitHub Page): <https://uzoolove.github.io/FESP02-typescript/workspace-ins>
 
 ## 개발환경 구축
 ### 프로그램 설치
 * 본인의 OS에 맞는 버전 다운로드 후 설치
-1. Nodejs 설치: https://nodejs.org/en/download
-2. Visual Studio Code 설치: https://code.visualstudio.com/download
-3. Git 설치: https://git-scm.com/downloads
+1. Nodejs 설치: <https://nodejs.org/en/download>
+2. Visual Studio Code 설치: <https://code.visualstudio.com/download>
+3. Git 설치: <https://git-scm.com/downloads>
 
 ### Visual Studio Code 설정
 1. VSCode 실행
@@ -82,7 +84,7 @@ tsc --watch
 npx serve .
 ```
 
-* http://localhost:3000 접속
+* <http://localhost:3000> 접속
   - 이미 3000 포트가 사용중일 경우 콘솔 안내 메세지에 따라서 다른 포트로 접속
 * 각 예제 클릭해서 브라우저 개발자 도구 > 콘솔 탭에서 결과 확인
 
@@ -96,7 +98,7 @@ npx serve .
 * 사전에 정의한 규칙을 지키지 않는다면 경고나 에러를 띄워서 문법 오류나 코딩 스타일을 유지할 수 있게 도와줌
 
 ### ESLint 설정
-* 설정 파일 작성 방법: https://eslint.org/docs/latest/use/configure/configuration-files
+* 설정 파일 작성 방법: <https://eslint.org/docs/latest/use/configure/configuration-files>
 * 프로젝트 루트에서 다음 명령 실행후 프로젝트 환경 질문에 답변하면 .eslint.config.mjs 파일 생성됨
 * package.json 파일 생성
 ```sh
@@ -151,7 +153,7 @@ export default [
 * tseslint.configs.recommended
   - tseslint: ESLint와 TypeScript를 함께 사용할 수 있게 해주는 도구
   - TypeScript에서 권장하는 ESLint 규칙 활성화
-  - https://typescript-eslint.io/packages/typescript-eslint 참조
+  - <https://typescript-eslint.io/packages/typescript-eslint> 참조
 
 * rules: 사용자 정의 규칙 지정
   - 이전의 모든 규칙 보다 우선함
@@ -162,8 +164,8 @@ export default [
 ### 커스텀 규칙 설정
 * 필요에 따라 .eslint.config.mjs 파일의 rules에 커스텀 룰 추가
 * 작성 방법
-  - Javascript: https://eslint.org/docs/latest/rules
-  - Typescript: https://typescript-eslint.io/rules
+  - Javascript: <https://eslint.org/docs/latest/rules>
+  - Typescript: <https://typescript-eslint.io/rules>
 ```js
 export default [
   ......
