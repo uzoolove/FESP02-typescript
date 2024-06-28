@@ -23,7 +23,7 @@
 		- Readonly Include가 보이지 않을 경우 VSCode를 최신 버전(1.79 이상)으로 업데이트
 3. Github 레퍼지토리 복사
 	* View > Source Control > Clone Repository 선택
-	* <nohyper>https</nohyper>://github.com/uzoolove/FESP02-typescript.git 입력
+	* `https://github.com/uzoolove/FESP02-typescript.git` 입력
 	* 복사할 적당한 폴더 선택 후 Select as Repository Destination 선택
 	* Open 선택
 
