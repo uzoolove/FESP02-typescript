@@ -185,7 +185,7 @@ export default [
 * pluginJs.configs.recommended: ESLint 팀에서 권장하는 규칙 활성화
   - pluginJs.configs.all: 모든 ESLint 규칙 활성화
 * tseslint.configs.recommended
-  - tseslint: ESLint와 TypeScript를 함께 사용할 수 있게 해주는 도구
+  - tseslint: ESLint를 TypeScript 코드에서 실행되도록 해주는 도구
   - TypeScript에서 권장하는 ESLint 규칙 활성화
   - <https://typescript-eslint.io/packages/typescript-eslint> 참조
 
@@ -229,7 +229,7 @@ npx eslint ./ch01
 ```
 * 지정한 파일 검사
 ```sh
-npx eslint ./ch01/ex01-01.ts
+npx eslint ./ch01/01.ts
 ```
 
 ### VSCode ESLint 플러그인 설치
