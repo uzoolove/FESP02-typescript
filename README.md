@@ -76,6 +76,7 @@ console.log(hello('TypeScript'));
 * VSCode 터미널에서 컴파일
 
 ```sh
+cd workspace/ch01
 tsc 01.ts
 ```
 
