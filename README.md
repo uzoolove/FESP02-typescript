@@ -30,6 +30,7 @@
 ### TypeScript Compiler 설치
 * node.js용 TypeScript Compiler 모듈을 global로 설치(어느 경로에서나 tsc 명령어 사용 가능)
 * VSCode > View > Terminal
+
 ```sh
 npm i typescript -g
 ```
@@ -42,6 +43,7 @@ npm i typescript -g
 
 ## 터미널 테스트
 * workspace/ch01/01.ts 파일 작성
+
 ```ts
 function hello(name: string): string {
   return 'Hello ' + name;
@@ -50,11 +52,13 @@ console.log(hello('TypeScript'));
 ```
 
 * VSCode 터미널에서 컴파일
+
 ```sh
 tsc 01.ts
 ```
 
 * 실행
+
 ```sh
 node 01.js
 ```
@@ -67,18 +71,21 @@ node 01.js
 ```sh
 tsc --init
 ```
+
 * tsconfig.json 파일 수정
   - "rootDir": "./" 주석 해제
   - "outDir": "./" 주석 해제 후 "outDir": "./dist"로 수정
 
 ### tsc --watch 옵션
 * 하위 폴더를 포함해서 ts 파일 변경을 감지하고 자동으로 컴파일한 후 outDir로 지정한 폴더에 js 파일 생성
+
 ```sh
 tsc --watch
 ```
 
 ### 웹서버 구동
 * 새로운 터미널에서 실행
+
 ```sh
 npx serve .
 ```
@@ -99,13 +106,13 @@ npx serve .
 ### ESLint 설정
 * 설정 파일 작성 방법: <https://eslint.org/docs/latest/use/configure/configuration-files>
 * 프로젝트 루트에서 다음 명령 실행후 프로젝트 환경 질문에 답변하면 .eslint.config.mjs 파일 생성됨
-* package.json 파일 생성.
+* package.json 파일 생성
 
 ```sh
 npm init -y
 ```
 
-* .eslint.config.mjs 파일 생성.
+* .eslint.config.mjs 파일 생성
 
 ```sh
 npx eslint@latest --init
@@ -134,6 +141,7 @@ eslint@9.x, globals, @eslint/js, typescript-eslint
 ```
 
 * .eslint.config.mjs
+
 ```js
 import globals from "globals";
 import pluginJs from "@eslint/js";
@@ -169,6 +177,7 @@ export default [
 * 작성 방법
   - Javascript: <https://eslint.org/docs/latest/rules>
   - Typescript: <https://typescript-eslint.io/rules>
+
 ```js
 export default [
   ......
