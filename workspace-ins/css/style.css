@@ -1,0 +1,201 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Noto Sans Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url('font/eot/NotoSansKR-Regular-Hestia.eot'),
+    url('font/eot/NotoSansKR-Regular-Hestia.eot?#iefix') format('embedded-opentype'),
+    url('font/woff/NotoSansKR-Regular-Hestia.woff') format('woff'),
+    url('font/otf/NotoSansKR-Regular-Hestia.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url('font/eot/NotoSansKR-Bold-Hestia.eot'),
+    url('font/eot/NotoSansKR-Bold-Hestia.eot?#iefix') format('embedded-opentype'),
+    url('font/woff/NotoSansKR-Bold-Hestia.woff') format('woff'),
+    url('font/otf/NotoSansKR-Bold-Hestia.otf') format('opentype');
+}
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  background-color: #434343;
+  font-size: 1.4rem;
+  font-family: 'Noto Sans Regular', 'Sans-serif';
+  line-height: 1.6;
+}
+
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0 0 0 2rem;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+}
+
+.main-contents {
+  overflow: hidden;
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.example-title {
+  margin: 1rem;
+  font-size: 2rem;
+  font-family: 'Noto Sans Bold';
+    
+}
+
+.chapter {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1rem auto;
+  border: 2px solid #222;
+  float: left;
+  background: #fff!important;
+  color: #000;
+  position: relative;
+  height: auto!important;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.chapter-open .paragraph{
+  display: block;
+}
+
+.chapter-title > button:focus {
+  border-color: transparent #ff0 #ff0 transparent;
+}
+
+.chapter-title > h3 {
+  margin: 0;
+  padding: 0.5rem 2rem;
+  background-color: #243949;
+  font-family: 'Noto Sans Bold';
+  color: #fff;
+}
+
+.chapter-title > h3:hover {
+  background: #9b869c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.chapter-title > button {
+  position: absolute;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  background: transparent;
+  transform: rotate(45deg);
+  cursor: pointer;
+  top: 0.7rem;
+  border-right: 0.5rem solid #fff;
+  border-bottom: 0.5rem solid #fff;
+  outline: 0;
+}
+
+.chapter-open button {
+  top: 1.5rem!important;
+  border-top: 0.5rem solid #fff!important;
+  border-left: 0.5rem solid #fff!important;
+  border-right: 0.5rem solid transparent!important;
+  border-bottom: 0.5rem solid transparent!important;
+}
+
+.chapter-open button:focus {
+  border-color: #ff0 transparent transparent #ff0 !important;
+}
+
+.paragraph {
+  padding: 0 1rem;
+  display: none;
+}
+
+.paragraph ul {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.paragraph:last-child ul {
+  border-bottom: 0;
+}
+
+.paragraph a {
+  color: #000;
+}
+
+.paragraph a:hover {
+  display: block;
+  background: #9b869c;
+  color: #fff;
+}
+
+.paragraph a.clicked {
+  display: block;
+  background: #9b869c;
+  color: #fff;
+}
+
+.footer {
+  clear: both;
+  text-align: center;
+}
+
+a.notyet {
+  color: #ccc;
+}
+
+@media screen and (min-width: 601px) {
+  body {
+    font-size: 1.6rem;
+  }
+  .container {
+    width: 96%;
+    margin: 0 auto;
+  }
+  .main-contents {
+    padding: 1rem 2rem;
+  }
+  .example-title {
+    font-size: 2.5rem;
+    margin: 2rem;
+  }
+  .chapter {
+    height: 4.3rem;
+  }
+  .paragraph {
+    padding: 0 2rem;
+  }
+}
