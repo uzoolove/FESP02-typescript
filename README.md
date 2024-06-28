@@ -57,7 +57,7 @@ npm i typescript -g
 * workspace 폴더 생성
 * sample 폴더를 workspace 폴더로 복사해서 실습 진행
   - sample/01 폴더 내부의 파일과 폴더를 workspace 폴더에 복사
-* 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript/workspace-ins>) 폴더에서 확인
+* 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript/tree/main/workspace-ins>) 폴더에서 확인
   - VSCode에서 소스코드 비교
     + 비교할 두개의 파일을 오픈
     + View > Command Palette > File: Compare Active File With... 선택
@@ -243,5 +243,5 @@ npx eslint ./ch01/01.ts
   ```
 
 ## 수업 자료
-* [PPT](<https://github.com/uzoolove/FESP02-typescript/PPT>) 폴더 확인
+* [PPT](<https://github.com/uzoolove/FESP02-typescript/tree/main/PPT>) 폴더 확인
 
