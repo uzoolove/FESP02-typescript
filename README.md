@@ -38,7 +38,7 @@ npm i typescript -g
 * workspace 폴더 생성
 * sample 폴더를 workspace 폴더로 복사해서 실습 진행
   - sample/01 폴더 내부의 파일과 폴더를 workspace 폴더에 복사
-* 완성된 강사의 코드는 workspace-ins 폴더에서 확인
+* 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript>) 폴더에서 확인
 
 ## 터미널 테스트
 * workspace/ch01/01.ts 파일 작성
