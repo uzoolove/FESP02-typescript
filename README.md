@@ -99,13 +99,13 @@ npx serve .
 ### ESLint 설정
 * 설정 파일 작성 방법: <https://eslint.org/docs/latest/use/configure/configuration-files>
 * 프로젝트 루트에서 다음 명령 실행후 프로젝트 환경 질문에 답변하면 .eslint.config.mjs 파일 생성됨
-* package.json 파일 생성
+* package.json 파일 생성.
 
 ```sh
 npm init -y
 ```
 
-* .eslint.config.mjs 파일 생성
+* .eslint.config.mjs 파일 생성.
 
 ```sh
 npx eslint@latest --init
