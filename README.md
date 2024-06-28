@@ -40,6 +40,10 @@ npm i typescript -g
 * sample 폴더를 workspace 폴더로 복사해서 실습 진행
   - sample/01 폴더 내부의 파일과 폴더를 workspace 폴더에 복사
 * 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript/workspace-ins>) 폴더에서 확인
+  - VSCode에서 소스코드 비교
+    + 비교할 두개의 파일을 오픈
+    + View > Command Palette > File: Compare Active File With... 선택
+비교할 대상 파일 선택
 
 ## 터미널 테스트
 * workspace/ch01/01.ts 파일 작성
