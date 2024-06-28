@@ -208,7 +208,3 @@ npx eslint ./ch01/ex01-01.ts
 ## 수업 자료
 * PPT 폴더 확인
 
-## 소스코드 공유
-* 본인의 소스코드를 강사에게 공유하고 싶을때
-* StackBlitz: https://stackblitz.com 접속 후 문제 있는 소스코드 붙여 넣고 채팅창에 url 입력
-
