@@ -3,6 +3,24 @@
 * 소스 코드(GitHub): <https://github.com/uzoolove/FESP02-typescript>
 * 예제 테스트(GitHub Page): <https://uzoolove.github.io/FESP02-typescript/workspace-ins>
 
+## 수업 스케쥴 (일정은 변동 가능)
+
+### 1주차 (2024.07.01 ~ 2024.07.05, 5일)
+* TypeScript
+
+### 2주차 (2024.07.08 ~ 2024.07.12, 5일)
+* React 프로젝트
+* TypeScript 리팩토링 프로젝트
+
+### 3주차 (2024.07.15 ~ 2024.07.19, 5일)
+* Next.js
+
+### 4주차 (2024.07.22 ~ 2024.07.26, 5일)
+* Next.js
+
+### 5주차 ~ 8주차 (2024.07.29 ~ 2024.08.27, 20일)
+* TypeScript + Next.js 팀 프로젝트
+
 ## 개발환경 구축
 ### 프로그램 설치
 * 본인의 OS에 맞는 버전 다운로드 후 설치
@@ -121,7 +139,7 @@ npm init -y
 ```sh
 npx eslint@latest --init
 또는
-npm init @eslint/config
+npm init @eslint/config@latest
 
 Need to install the following packages: @eslint/create-config@1.1.5 Ok to proceed? (y)
   - y
