@@ -38,7 +38,7 @@ npm i typescript -g
 * workspace 폴더 생성
 * sample 폴더를 workspace 폴더로 복사해서 실습 진행
   - sample/01 폴더 내부의 파일과 폴더를 workspace 폴더에 복사
-* 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript>) 폴더에서 확인
+* 완성된 강사의 코드는 [workspace-ins](<https://github.com/uzoolove/FESP02-typescript/workspace-ins>) 폴더에서 확인
 
 ## 터미널 테스트
 * workspace/ch01/01.ts 파일 작성
@@ -51,12 +51,12 @@ console.log(hello('TypeScript'));
 
 * VSCode 터미널에서 컴파일
 ```sh
-tsc ex01-01.ts
+tsc 01.ts
 ```
 
 * 실행
 ```sh
-node ex01-01.js
+node 01.js
 ```
 
 ## 브라우저 테스트
@@ -103,6 +103,7 @@ npx serve .
 ```sh
 npm init -y
 ```
+
 * .eslint.config.mjs 파일 생성
 ```sh
 npx eslint@latest --init
@@ -143,6 +144,7 @@ export default [
   ...tseslint.configs.recommended,
 ];
 ```
+
 ### 설정 파일 내용
 * files: 확장자가 js, mjs, cjs, ts인 경우에 적용
 * languageOptions.globals: 각 전역 변수를 덮어쓰기 가능한지 여부 지정(true면 덮어쓰기 가능, false면 읽기 전용, 기본은 false)
