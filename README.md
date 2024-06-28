@@ -243,5 +243,5 @@ npx eslint ./ch01/01.ts
   ```
 
 ## 수업 자료
-* PPT 폴더 확인
+* [PPT](<https://github.com/uzoolove/FESP02-typescript/workspace-ins>) 폴더 확인
 
