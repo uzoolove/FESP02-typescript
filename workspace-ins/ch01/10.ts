@@ -23,4 +23,8 @@
     return user.age;
   };
 
+  const u3 = createUser('슬비쌤', 35);
+  console.log(u3, getAge(u3));
+
+
 })();
