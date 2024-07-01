@@ -25,11 +25,34 @@
 
 (()=>{
 
+  interface Phone {
+    mobile: {
+      num: string
+    },
+    [location: string]: {
+      num: string
+    }
+  }
+
   interface User {
     name: string,
-    email: string
+    email: string,
     // TODO: phones 타입 정의
-
+    phones: Phone,
+    // phones: {
+    //   // home?: {
+    //   //   num: string
+    //   // },
+    //   // office?: {
+    //   //   num: string
+    //   // },
+    //   mobile: {
+    //     num: string
+    //   },
+    //   [location: string]: {
+    //     num: string
+    //   }
+    // }
   }
 
   const ryan: User = {
@@ -71,7 +94,11 @@
 
   function getUserInfo(user: User): string {
     // TODO: 출력결과에 맞춰서 작성
-    return ``;
+    return `이름: ${ user.name }
+      이메일: ${ user.email }
+      휴대폰: ${ user.phones.mobile.num }
+      회사 번호: ${ user.phones.office?.num || '없음' }
+      집 번호: ${ user.phones.home?.num || '없음' }`;
   }
 
   console.log(getUserInfo(ryan));
