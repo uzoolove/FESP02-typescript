@@ -16,7 +16,12 @@
 
   // TODO: 아래와 같이 출력 되도록 함수 작성
   function createDropdownList(list){
-    
+    let value;
+    const options = list.map(item => {
+      value = item.value;
+      return `<option selected="${ item.selected ? 'selected' : '' }">${ typeof value === 'string' ? value.toLowerCase() : value }</option>`;
+    });
+    return `<select>\n${ options.join('\n') }\n</select>`;   
   }
 
   /* 출력 결과
