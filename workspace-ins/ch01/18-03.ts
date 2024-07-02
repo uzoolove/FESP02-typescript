@@ -4,6 +4,7 @@
 (()=>{
   const TYPE_SCRIPT = 'TypeScript';
   const NEXT_JS = 'Next.js';
+  
   function getSchedule(subject: string) {
     if(TYPE_SCRIPT === subject){
       return `타입스크립트 수업은 이론 1주 + 프로젝트 1주 입니다.`;
