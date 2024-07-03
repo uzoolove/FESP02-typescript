@@ -24,8 +24,8 @@
         }
     }
     // Map 생성
-    // const mymap = new MyMap<string, string>();
-    const mymap = new Map();
+    const mymap = new MyMap();
+    // const mymap = new Map<string, string|number>();
     // 데이터 추가
     mymap.set("hello", 'world');
     mymap.set("js", 'JavsScript');

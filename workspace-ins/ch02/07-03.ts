@@ -32,8 +32,8 @@
   }
 
   // Map 생성
-  // const mymap = new MyMap<string, string>();
-  const mymap = new Map<string, string|number>();
+  const mymap = new MyMap<string, string>();
+  // const mymap = new Map<string, string|number>();
 
 
   // 데이터 추가
