@@ -23,5 +23,5 @@
     content: 'React 복습'
   };
 
-  console.log(todo1, todo2, todo3, todo4);
+  console.log(todo1, todo2, todo3, todo4.content && todo4.content.toUpperCase());
 })();
