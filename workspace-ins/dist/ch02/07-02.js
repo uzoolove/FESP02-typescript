@@ -31,7 +31,7 @@
     const s1 = sq.pop();
     const s2 = sq.pop();
     const s3 = sq.pop();
-    console.log(s1, s2 === null || s2 === void 0 ? void 0 : s2.toUpperCase(), s3);
+    console.log(s1, s2?.toUpperCase(), s3);
     const nq = new Stack();
     nq.push(10);
     nq.push(20.12345);

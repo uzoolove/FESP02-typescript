@@ -19,7 +19,7 @@
     const s1 = sq.pop();
     const s2 = sq.pop();
     const s3 = sq.pop();
-    console.log(s1, s2 === null || s2 === void 0 ? void 0 : s2.toUpperCase(), s3);
+    console.log(s1, s2?.toUpperCase(), s3);
     class NumberQueue {
         constructor() {
             this.data = [];
@@ -38,5 +38,5 @@
     const n1 = nq.pop();
     const n2 = nq.pop();
     const n3 = nq.pop();
-    console.log(n1, n2 === null || n2 === void 0 ? void 0 : n2.toFixed(2), n3);
+    console.log(n1, n2?.toFixed(2), n3);
 })();

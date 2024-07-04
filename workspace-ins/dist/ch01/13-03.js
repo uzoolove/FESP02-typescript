@@ -58,13 +58,12 @@
         }
     };
     function getUserInfo(user) {
-        var _a, _b;
         // TODO: 출력결과에 맞춰서 작성
         return `이름: ${user.name}
       이메일: ${user.email}
       휴대폰: ${user.phones.mobile.num}
-      회사 번호: ${((_a = user.phones.office) === null || _a === void 0 ? void 0 : _a.num) || '없음'}
-      집 번호: ${((_b = user.phones.home) === null || _b === void 0 ? void 0 : _b.num) || '없음'}`;
+      회사 번호: ${user.phones.office?.num || '없음'}
+      집 번호: ${user.phones.home?.num || '없음'}`;
     }
     console.log(getUserInfo(ryan));
     console.log(getUserInfo(neo));
