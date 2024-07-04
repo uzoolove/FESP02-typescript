@@ -9,6 +9,7 @@
     const user2 = {
         name: '라이언',
         admin: true,
+        level: 1
     };
     const user3 = {
         name: '게스트',
@@ -16,7 +17,7 @@
     };
     function helloUser(user) {
         if (isAdmin(user)) {
-            console.log(`안녕하세요. ${user.name} 관리자님.`);
+            console.log(`안녕하세요. 레벨 ${user.level} ${user.name} 관리자님.`);
         }
         else { // 나이를 출력
             console.log(`안녕하세요. ${user.name} 회원님.`);
@@ -29,4 +30,5 @@
     }
     helloUser(user1);
     helloUser(user2);
+    helloUser(user3);
 })();

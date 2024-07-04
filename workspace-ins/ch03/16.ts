@@ -10,6 +10,7 @@
   interface AdminUser {
     name: string;
     admin: true;
+    level: 1 | 2 | 3;
   }
 
   interface GuestUser {
@@ -26,6 +27,7 @@
   const user2: AdminUser = {
     name: '라이언',
     admin: true,
+    level: 1
   };
 
   const user3: GuestUser = {
@@ -35,7 +37,7 @@
 
   function helloUser(user: User | AdminUser | GuestUser) {
     if(isAdmin(user)){
-      console.log(`안녕하세요. ${ user.name } 관리자님.`);
+      console.log(`안녕하세요. 레벨 ${ user.level } ${ user.name } 관리자님.`);
     }else{ // 나이를 출력
       console.log(`안녕하세요. ${ user.name } 회원님.`);
     }
@@ -43,10 +45,11 @@
 
   // 타입 가드 구문이 복잡하고 여러번 사용해야 할 경우
   // user is AdminUser: true를 리턴할 경우 user의 타입이 AdminUser가 확정됨
-  function isAdmin(user: User | GuestUser | AdminUser): user is AdminUser{
+  function isAdmin(user: User | GuestUser | AdminUser): user is AdminUser {
     return 'admin' in user && user.admin;
   }
 
   helloUser(user1);
   helloUser(user2);
+  helloUser(user3);
 })();
