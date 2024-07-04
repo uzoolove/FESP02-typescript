@@ -20,7 +20,6 @@
     title: string;
     content: string;
   }
-
   class Todo implements ITodo {
     title: string;
     content: string;
@@ -28,19 +27,32 @@
       this.title = title;
       this.content = content;
     }
+    cry(){
+      console.log('야옹')
+    }
   }
 
-  function getTitle(target: Todo | string[]){
-    
+  class Tiger implements ITodo {
+    title: string;
+    content: string;
+    constructor(title: string, content: string) {
+      this.title = title;
+      this.content = content;
+    }
+    cry(){
+      console.log('어흥')
+    }
   }
 
-  const todo1: Todo = {
-    title: '할일 1',
-    content: '내용 1',
-  };
-
+  function getTitle(target: ITodo | string[]) {
+    if(target instanceof Todo){
+      return target.cry;
+    }else if(target instanceof Array){
+      return target[0];
+    }
+  }
+  const todo1: ITodo = new Tiger('할일 1', '내용 1');
   const todo2: [string, string] = ['할일 2', '내용 2'];
-
   console.log(getTitle(todo1));
   console.log(getTitle(todo2));
 

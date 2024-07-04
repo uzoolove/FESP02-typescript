@@ -2,7 +2,6 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 
-
 export default [
   {files: ["**/*.{js,mjs,cjs,ts}"]},
   {languageOptions: { globals: globals.browser }},
@@ -17,8 +16,6 @@ export default [
       // "@typescript-eslint/no-unused-vars": "warn", // 사용하지 않는 변수
       // "@typescript-eslint/explicit-function-return-type": "off", // 함수의 리턴타입을 명시적으로 지정하지 않아도 됨
       // "@typescript-eslint/no-explicit-any": "warn", // any 타입 사용
-      "no-return-void": "error",
-      "@typescript-eslint/no-invalid-void-type": "error"
     }
   }
 ];
