@@ -15,10 +15,16 @@
     const todo1 = {
         title: '할일 1',
         content: '내용 1',
+        sum: () => 'hello'
     };
+    const result = todo1.sum();
+    console.log(result);
     const todo2 = {
         title: '할일 2',
         content: 'Hello',
+        sum: () => {
+            'hello';
+        }
     };
     function printTodo(todo) {
         console.log(todo.title, todo.content.toLowerCase());

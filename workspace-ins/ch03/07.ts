@@ -18,17 +18,24 @@
   interface Todo {
     title: string;
     content: string;
+    sum: () => void;
   }
 
   // 객체(속성값에 맞춰서 타입 추론)
   const todo1: Todo = {
     title: '할일 1',
     content: '내용 1',
+    sum: () => 'hello'
   };
+
+  const result =  todo1.sum();
+  console.log(result);
+
 
   const todo2: Todo = {
     title: '할일 2',
     content: 'Hello',
+    sum: () => { 'hello'}
   };
 
   function printTodo(todo: Todo){
