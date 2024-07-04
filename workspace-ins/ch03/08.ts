@@ -2,7 +2,7 @@
 
 (()=>{
   // 매개변수의 타입을 지정하지 않으면 num은 any 타입  
-  function add10(num) {
+  function add10(num: number) {
     return num + 10;
   }
 
@@ -10,7 +10,11 @@
     return num + 10;
   }
 
-  function checkNumber(x: number, y: number){
+  // 리턴할 수 있는 모든 케이스를 다 계산해서 최대한 좁은 범위의 타입으로 추론
+  // 좁은 범위의 타입과 넓은 범위의 타입이 같이 있을 경우 서로 호환된다면 넓은 범위의 타입에 포함
+  function checkNumber(x: number, y: number): string | undefined {
+    // 내가 왜 얘를 any로 해야 하는가???
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let z;
 
     if(x === 10){

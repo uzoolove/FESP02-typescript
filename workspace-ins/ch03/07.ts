@@ -25,6 +25,7 @@
     title: '할일 1',
     content: '내용 1',
   };
+
   const todo2: Todo = {
     title: '할일 2',
     content: 'Hello',
