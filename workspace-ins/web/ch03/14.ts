@@ -30,5 +30,5 @@ import { Todo } from './types';
 
   console.log(toString(todo1));
   console.log(toString(todo2));
-
+  
 })();
