@@ -2,11 +2,13 @@ import TodoItem from "@pages/TodoItem";
 import PropTypes from "prop-types";
 
 TodoList.propTypes = {
-  data: PropTypes.arrayOf({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    done: PropTypes.bool
-  }),
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      done: PropTypes.bool,
+    })
+  ),
   refetch: PropTypes.func,
 };
 
