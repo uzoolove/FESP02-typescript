@@ -1,26 +1,17 @@
 import TodoInput from "@pages/TodoInput";
 import TodoList from "@pages/TodoList";
-
-const data = [
-  {
-    "id": "1",
-    "title": "Typescript 학습",
-    "done": true
-  },
-  {
-    "id": "2",
-    "title": "Typescript 프로젝트",
-    "done": false
-  },
-  {
-    "id": "3",
-    "title": "Next.js 학습",
-    "done": false
-  },
-];
+import { useEffect } from "react";
 
 function Todo(){
-  
+
+  const fetchData = async() => {
+    
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8">Todo App 2</h1>
