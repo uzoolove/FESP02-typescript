@@ -7,10 +7,11 @@ TodoList.propTypes = {
     title: PropTypes.string,
     done: PropTypes.bool
   }),
+  refetch: PropTypes.func,
 };
 
-function TodoList({ data }){
-  const items = data?.map(item => <TodoItem key={ item.id } item={ item } />);
+function TodoList({ data, refetch }){
+  const items = data?.map(item => <TodoItem key={ item.id } item={ item } refetch={ refetch } />);
   return (
     <ul>
       { items }

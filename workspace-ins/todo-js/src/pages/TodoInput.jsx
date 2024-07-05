@@ -1,5 +1,4 @@
 import Button from "@components/Button";
-import useFetch from "@hooks/useFetch";
 import useMutation from "@hooks/useMutation";
 import PropTypes from 'prop-types';
 import { useState } from "react";
