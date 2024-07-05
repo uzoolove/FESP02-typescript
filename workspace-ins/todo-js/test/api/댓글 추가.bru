@@ -1,0 +1,18 @@
+meta {
+  name: 댓글 추가
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3300/todos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "프로젝트 준비",
+    "done": false
+  }
+}

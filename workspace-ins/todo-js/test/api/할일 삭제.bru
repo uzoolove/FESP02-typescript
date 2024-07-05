@@ -1,0 +1,18 @@
+meta {
+  name: 할일 삭제
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3300/todos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "프로젝트 준비",
+    "done": false
+  }
+}
