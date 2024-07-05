@@ -100,3 +100,129 @@ npx json-server@latest db.json --port 3300
 ```html
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 ```
+
+* body 영역에 tailwind css 추가
+```html
+<body>
+  <div id="root">
+    <div class="container mx-auto p-4">
+      <h1 class="text-4xl font-bold text-center mb-8">Todo List - Sample</h1>
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex mb-4">
+          <input class="flex-grow border-2 border-gray-300 p-2 rounded-l-lg focus:outline-none focus:border-orange-500" type="text" name="title" placeholder="할일을 입력하세요.">
+          <button type="button" className="bg-blue-500 hover:bg-blue-600 py-2 px-4 ml-2 text-base text-white rounded">추가</button>
+        </div>
+        <ul>
+          <li class="flex justify-between p-2 border-b-2 border-gray-200">
+            <form class="flex-grow flex items-center">
+              <span class="cursor-pointer">리액트 다시보기</span>
+              <div class="flex ml-auto">
+                <button type="button" className="bg-gray-500 hover:bg-gray-600 py-1 px-2 ml-2 text-sm text-white rounded">수정</button>
+                <button type="button" className="bg-red-500 hover:bg-red-600 py-1 px-2 ml-2 text-sm text-white rounded">삭제</button>
+              </div>
+            </form>
+          </li>
+          <li class="flex justify-between p-2 border-b-2 border-gray-200">
+            <form class="flex-grow flex items-center">
+              <span class="line-through text-gray-400 cursor-pointer">자바스크립트 복습</span>
+              <div class="flex ml-auto">
+                <button type="button" className="bg-gray-500 hover:bg-gray-600 py-1 px-2 ml-2 text-sm text-white rounded">수정</button>
+                <button type="button" className="bg-red-500 hover:bg-red-600 py-1 px-2 ml-2 text-sm text-white rounded">삭제</button>
+              </div>
+            </form>
+          </li>
+          <li class="flex justify-between p-2 border-b-2 border-gray-200">
+            <form class="flex-grow flex items-center">
+              <input class="flex-grow mr-4 border-2 border-gray-300 p-1" type="text" name="title" value="타입스크립트 공부" placeholder="내용을 입력하세요.">
+              <div class="flex ml-auto">
+                <button type="button" className="bg-blue-500 hover:bg-blue-600 py-1 px-2 ml-2 text-sm text-white rounded">저장</button>
+                <button type="button" className="bg-gray-500 hover:bg-gray-600 py-1 px-2 ml-2 text-sm text-white rounded">취소</button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+```
+
+### tailwind 설치
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
+
+### 설정 파일 생성
+* tailwind.config.js
+* postcss.config.js(-p 옵션으로 생성)
+```sh
+npx tailwindcss init -p
+```
+
+### 설정 파일 수정
+* tailwind.config.js
+  - tailwindcss를 적용할 대상 확장자 지정
+    ```js
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+      content: ["./src/**/*.{js,jsx}"],
+      theme: {
+        extend: {},
+      },
+      plugins: [],
+    }
+    ```
+
+### tailwindcss 지시어 추가
+* src/index.css
+  ```css
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  ```
+
+  - 지시어 경고 수정
+    + VSCode가 @tailwind 키워드를 인식할 수 없어서 경고 발생할 경우
+    + VScode 설정에서 unknown at rules 검색 후 CSS > Lint: Unknown At Rules를 Ignore로 변경
+    
+### VSCode 플러그인
+* Tailwind CSS IntelliSense
+  - VSCode에서 tainwindcss 관련 자동 완성, 구문 강조, 린팅 같은 기능 제공
+  - 마우스 오버시 실제 적용되는 CSS가 툴팁으로 표시
+
+## 리액트 컴포넌트 개발
+
+### 설정 파일 작성
+* jsconfig.json 생성
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@hooks/*": ["hooks/*"]
+    }
+  }
+}
+```
+
+* vite.config.js 파일 수정
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [
+      { find: "@", replacement: "/src" },
+      { find: "@components", replacement: "/src/components" },
+      { find: "@pages", replacement: "/src/pages" },
+      { find: "@hooks", replacement: "/src/hooks" },
+    ],
+  },
+})
+```
