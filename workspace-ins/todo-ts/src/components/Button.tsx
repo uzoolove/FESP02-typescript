@@ -1,6 +1,9 @@
-import PropTypes from 'prop-types';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  bgColor: 'gray' | 'red' | 'blue',
+  btnSize: 'sm' | 'md' | 'lg',
+}
 
-const Button = ({ children, type="button", bgColor="gray", btnSize="sm", ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ children, type="button", bgColor="gray", btnSize="sm", ...rest }) => {
   const btnColor = {
     gray: 'bg-gray-500 hover:bg-gray-600',
     red: 'bg-red-500 hover:bg-red-600',
@@ -18,11 +21,6 @@ const Button = ({ children, type="button", bgColor="gray", btnSize="sm", ...rest
   );
 };
 
-Button.propTypes = {
-  children: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  bgColor: PropTypes.string,
-  btnSize: PropTypes.string,
-};
+
 
 export default Button;

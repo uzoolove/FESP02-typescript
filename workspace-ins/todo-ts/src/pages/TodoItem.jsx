@@ -1,17 +1,7 @@
 import Button from '@components/Button';
 import Submit from '@components/Submit';
 import useMutation from '@hooks/useMutation';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
-
-TodoItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    done: PropTypes.bool
-  }),
-  refetch: PropTypes.func,
-};
 
 function TodoItem({ item, refetch }){
 

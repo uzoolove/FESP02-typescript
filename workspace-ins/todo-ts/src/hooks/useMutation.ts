@@ -1,6 +1,6 @@
 const API_SERVER = 'http://localhost:3300';
 
-const useMutation = (url, options = {}) => {
+const useMutation = (url: string, options: RequestInit = {}) => {
   const send = async (addOptions = {}) => {
     if(!url.startsWith('http')){
       url = API_SERVER + url;

@@ -1,10 +1,11 @@
 import useFetch from "@hooks/useFetch";
 import TodoInput from "@pages/TodoInput";
 import TodoList from "@pages/TodoList";
+import { TodoListResponse } from "#types/todo";
 
 function Todo(){
 
-  const { loading, data, error, refetch } = useFetch('/todos');
+  const { loading, data, error, refetch } = useFetch<TodoListResponse>('/todos');
 
   if(loading) return <p>로딩중...</p>;
   if(error) return <p>{ error.message }</p>;

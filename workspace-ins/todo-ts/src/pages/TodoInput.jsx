@@ -1,11 +1,7 @@
 import Button from "@components/Button";
 import useMutation from "@hooks/useMutation";
-import PropTypes from 'prop-types';
 import { useState } from "react";
 
-TodoInput.propTypes = {
-  refetch: PropTypes.func,
-};
 
 function TodoInput({ refetch }){
   const [title, setTitle] = useState('');
