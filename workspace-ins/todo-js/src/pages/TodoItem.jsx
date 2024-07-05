@@ -1,3 +1,5 @@
+import Button from '@components/Button';
+import Submit from '@components/Submit';
 import PropTypes from 'prop-types';
 
 TodoItem.propTypes = {
@@ -19,10 +21,10 @@ function TodoItem({ item }){
           value={ item.title } 
           placeholder="내용을 입력하세요." />
         <div className="flex ml-auto">
-          <button className="bg-gray-500 hover:bg-gray-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">수정</button>
-          <button className="bg-red-500 hover:bg-red-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">삭제</button>
-          <button className="bg-blue-500 hover:bg-blue-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">저장</button>
-          <button className="bg-gray-500 hover:bg-gray-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">취소</button>
+          <Button>수정</Button>
+          <Submit bgColor="red">삭제</Submit>
+          <Submit bgColor="blue">저장</Submit>
+          <Button>취소</Button>
         </div>
       </form>
     </li>
