@@ -4,15 +4,14 @@ meta {
   seq: 3
 }
 
-post {
-  url: http://localhost:3300/todos
+patch {
+  url: http://localhost:3300/todos/1
   body: json
   auth: none
 }
 
 body:json {
   {
-    "title": "프로젝트 준비",
-    "done": false
+    "done": true
   }
 }

@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "id": "1",
-      "title": "Typescript 학습",
-      "done": true
-    },
-    {
-      "id": "2",
-      "title": "Typescript 프로젝트",
-      "done": false
-    },
-    {
       "id": "3",
       "title": "Next.js 학습",
       "done": false
@@ -35,7 +25,7 @@
     {
       "id": "7e38",
       "title": "댓글",
-      "todoId": "2"
+      "todoId": null
     }
   ]
 }
