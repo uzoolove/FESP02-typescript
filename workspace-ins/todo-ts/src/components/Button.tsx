@@ -1,4 +1,5 @@
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode,
   bgColor: 'gray' | 'red' | 'blue',
   btnSize: 'sm' | 'md' | 'lg',
 }

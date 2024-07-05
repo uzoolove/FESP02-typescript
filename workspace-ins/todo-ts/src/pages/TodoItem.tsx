@@ -1,9 +1,15 @@
+import { TodoItemData } from '#types/todo';
 import Button from '@components/Button';
 import Submit from '@components/Submit';
 import useMutation from '@hooks/useMutation';
 import { useState } from 'react';
 
-function TodoItem({ item, refetch }){
+type Props = {
+  item: TodoItemData,
+  refetch: () => Promise<void>,
+}
+
+function TodoItem({ item, refetch }: Props){
 
   const [editMode, setEditMode] = useState(false);
   const [title, setTitle] = useState(item.title);
@@ -15,7 +21,7 @@ function TodoItem({ item, refetch }){
   };
 
   // 수정 사항 저장
-  const handleSave = async (e) => {
+  const handleSave = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try{
       await send({
@@ -24,7 +30,9 @@ function TodoItem({ item, refetch }){
       });
       refetch();
     }catch(err){
-      alert(`에러 ${ err.message }`);
+      if(err instanceof Error){
+        alert(`에러 ${ err.message }`);
+      }
     }   
   };
 
@@ -43,12 +51,14 @@ function TodoItem({ item, refetch }){
       });
       refetch();
     }catch(err){
-      alert(`에러 ${ err.message }`);
+      if(err instanceof Error){
+        alert(`에러 ${ err.message }`);
+      }
     }
   };
 
   // 삭제
-  const handleDelete = async (e) => {
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try{
       await send({
@@ -56,7 +66,9 @@ function TodoItem({ item, refetch }){
       });
       refetch();
     }catch(err){
-      alert(`에러 ${ err.message }`);
+      if(err instanceof Error){
+        alert(`에러 ${ err.message }`);
+      }
     }
   };
 
