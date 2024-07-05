@@ -13,7 +13,11 @@ function TodoItem({ item }){
     <li className="flex justify-between p-2 border-b-2 border-gray-200">
       <form className="flex-grow flex item-center">
         <span className={`${ item.done ? 'line-through text-gray-400' : '' } cursor-pointer`}>{ item.title }</span>
-        <input className="flex-grow border-2 border-gray-300 p-1" type="text" value={ item.title } placeholder="내용을 입력하세요." />
+        <input 
+          className="flex-grow border-2 border-gray-300 p-1" 
+          type="text" 
+          value={ item.title } 
+          placeholder="내용을 입력하세요." />
         <div className="flex ml-auto">
           <button className="bg-gray-500 hover:bg-gray-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">수정</button>
           <button className="bg-red-500 hover:bg-red-600 py-2 px-4 ml-2 text-sm text-white rounded" type="button">삭제</button>
