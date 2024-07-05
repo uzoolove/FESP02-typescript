@@ -1,13 +1,41 @@
 {
-  "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+  "todos": [
+    {
+      "id": "1",
+      "title": "Typescript 학습",
+      "done": true
+    },
+    {
+      "id": "2",
+      "title": "Typescript 프로젝트",
+      "done": false
+    },
+    {
+      "id": "3",
+      "title": "Next.js 학습",
+      "done": false
+    },
+    {
+      "id": "4",
+      "title": "Next.js 프로젝트",
+      "done": false
+    },
+    {
+      "id": "f7cf",
+      "title": "프로젝트 준비",
+      "done": false
+    },
+    {
+      "id": "7f25",
+      "title": "프로젝트 준비",
+      "done": false
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+    {
+      "id": "7e38",
+      "title": "댓글",
+      "todoId": "2"
+    }
+  ]
 }
