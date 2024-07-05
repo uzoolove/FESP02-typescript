@@ -28,7 +28,14 @@
     {
       "id": "7f25",
       "title": "프로젝트 준비",
-      "done": false
+      "done": false,
+      "comments": [
+        {
+          "id": "7e38",
+          "title": "댓글",
+          "todoId": "2"
+        }
+      ]
     }
   ],
   "comments": [
