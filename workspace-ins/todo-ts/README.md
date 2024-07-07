@@ -39,7 +39,7 @@ export default defineConfig({
   - todo-js/jsconfig.json 설정을 복사
   - allowJs, include 추가 설정
 
-```json
+```js
 {
   "compilerOptions": {
     "baseUrl": "./src",
