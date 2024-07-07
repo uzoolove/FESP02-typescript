@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: http://localhost:3300/todos
+  url: http://localhost:3300/todos?_embed=comments
   body: none
   auth: none
+}
+
+params:query {
+  _embed: comments
 }
