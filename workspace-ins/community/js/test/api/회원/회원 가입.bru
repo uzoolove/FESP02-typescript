@@ -1,0 +1,25 @@
+meta {
+  name: 회원 가입
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{URL}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "gdssam@market.com",
+    "password": "11111111",
+    "name": "용쌤",
+    "type": "user",
+    "profileImage": {
+        "originalname": "user-apeach.webp",
+        "name": "owlqR557Y.webp",
+        "path": "/files/00-sample/owlqR557Y.webp"
+    }
+  }
+}

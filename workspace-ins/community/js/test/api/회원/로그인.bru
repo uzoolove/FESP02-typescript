@@ -1,0 +1,18 @@
+meta {
+  name: 로그인
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{URL}}/users/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "gdssam@market.com",
+    "password": "11111111"
+  }
+}
