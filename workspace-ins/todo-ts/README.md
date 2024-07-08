@@ -190,13 +190,17 @@ const useFetch = <T>(url: string, options: RequestInit = {}) => {
 * src/hooks/useMutation.ts
   - 확장자를 ts로 변경
   - 매개변수의 타입 지정
+  - 리턴 타입 제네릭으로 지정
 
 ```ts
-......
 const useMutation = (url: string, options: RequestInit = {}) => {
-  ......
+  const send = async <T>(addOptions = {}): Promise<T> => {
+    ...
+    const result: T = await response.json();
+    ...
+  };
+  ...
 };
-......
 ```
 
 ##### 페이지 컴포넌트
