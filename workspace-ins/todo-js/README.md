@@ -162,16 +162,16 @@ npx tailwindcss init -p
 ### 설정 파일 수정
 * tailwind.config.js
   - tailwindcss를 적용할 대상 확장자 지정
-    ```js
-    /** @type {import('tailwindcss').Config} */
-    module.exports = {
-      content: ["./src/**/*.{js,jsx}"],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    }
-    ```
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 ### tailwindcss 지시어 추가
 * src/index.css
