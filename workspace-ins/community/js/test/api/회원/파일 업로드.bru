@@ -1,0 +1,15 @@
+meta {
+  name: 파일 업로드
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{URL}}/files
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  attach: @file(E:\cloud\OneDrive - skku.edu\그림\user-apeach.webp)
+}

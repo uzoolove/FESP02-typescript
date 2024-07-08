@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: https://api.fesp.shop/posts
+  url: {{URL}}/posts?type={{name}}
   body: none
   auth: none
+}
+
+params:query {
+  type: {{name}}
 }

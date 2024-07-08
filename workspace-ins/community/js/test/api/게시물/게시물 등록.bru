@@ -1,0 +1,21 @@
+meta {
+  name: 게시물 등록
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{URL}}/posts
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "{{name}}",
+    "title": "여행 후기 입니다.",
+    "content": "주말에 다녀온 여행지 입니다. 날씨가 맑아서 좋았어요.",
+    "image": "sample-bugatti.png",
+    "tag": "혼자,떠나요,제주도"
+  }
+}
