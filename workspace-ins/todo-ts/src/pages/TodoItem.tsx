@@ -9,8 +9,11 @@ type Props = {
   refetch: () => Promise<void>,
 }
 
+// function TodoItem({ item, refetch }: {
+//   item: TodoItemData,
+//   refetch: () => Promise<void>,
+// }){
 function TodoItem({ item, refetch }: Props){
-
   const [editMode, setEditMode] = useState(false);
   const [title, setTitle] = useState(item.title);
   const { send } = useMutation(`/todos/${ item.id }`);
