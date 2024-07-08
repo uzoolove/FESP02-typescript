@@ -151,8 +151,8 @@ npm i react-router-dom react-hook-form react-csspin react-infinite-scroller reco
 
 ### 메인페이지 작성
 * index.html 수정
-* workspace/community/js/public/index.html의 ```<head>``` 부분으로 교체
-  - ```<head>```의 ```<script src="https://cdn.tailwindcss.com"></script>``` 삭제
+* workspace/community/js/public/index.html의 `<head>` 부분으로 교체
+  - `<head>`의 `<script src="https://cdn.tailwindcss.com"></script>` 삭제
 
 ```html
 <!doctype html>
@@ -186,7 +186,7 @@ npm i react-router-dom react-hook-form react-csspin react-infinite-scroller reco
 
 ### App 컴포넌트 작성
 * src/App.jsx 수정
-* workspace/community/js/public/index.html의 ```<div id="root">``` 하위 태그 복사
+* workspace/community/js/public/index.html의 `<div id="root">` 하위 태그 복사
 ```jsx
 function App() {
   return (
@@ -203,9 +203,9 @@ export default App;
   - html 주석을 JSX 주석으로 변환
     + Ctrl + F
 
-      ```<!--``` 찾아 바꾸기 ```{/*```
+      `<!--` 찾아 바꾸기 `{/*`
 
-      ```-->``` 찾아 바꾸기 ```*/}```
+      `-->` 찾아 바꾸기 `*/}`
 
   - class -> className
   - for -> htmlFor
@@ -1331,15 +1331,15 @@ export default Theme;
 ```
 
 ### 링크 수정
-#### ```<a>```태그 대신 ```<Link>``` 컴포넌트로 교체
-* 페이지 이동시 새로고침 발생하지 않도록 react-router-dom의 ```<Link>``` 컴포넌트로 수정
+#### `<a>`태그 대신 `<Link>` 컴포넌트로 교체
+* 페이지 이동시 새로고침 발생하지 않도록 react-router-dom의 `<Link>` 컴포넌트로 수정
 ```jsx
 import { Link } from "react-router-dom";
 ```
 
 * Ctrl + F
-  - ```<a href``` 찾아 바꾸기 ```<Link to```
-  - ```</a>``` 찾아 바꾸기 ```</Link>```
+  - `<a href` 찾아 바꾸기 `<Link to`
+  - `</a>` 찾아 바꾸기 `</Link>`
 
 * 대상 페이지
   - components/layout/Footer.jsx
