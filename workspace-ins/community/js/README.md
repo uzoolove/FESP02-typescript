@@ -1511,6 +1511,17 @@ export default ListItem;
 └── 📂 회원
 ```
 
+### 회원 기능 테스트
+#### 이메일 중복 체크
+* [회원] ... > New Request
+  - Name: 이메일 중복 체크
+  - URL: GET, {{URL}}/users/email
+  - Create
+
+* [이메일 중복 체크] > Params > Add Param
+  - Name: email
+  - Value: u1@market.com
+
 #### 환경 변수 등록
 * 우측 상단의 환경변수 드롭다운 > Configure > Create Environment
   - Environment Name: Community-dev
@@ -1525,18 +1536,7 @@ export default ListItem;
 
 * 우측 상단의 환경변수 드롭다운에서 Community-dev 선택
 
-### 회원 기능 테스트
-#### 이메일 중복 체크
-* [회원] ... > New Request
-  - Name: 이메일 중복 체크
-  - URL: GET, {{URL}}/users/email
-  - Create
-
-* [이메일 중복 체크] > Params > Add Param
-  - Name: email
-  - Value: u1@market.com
-
-#### 이메일 중복 체크
+#### 파일 업로드
 * [회원] ... > New Request
   - Name: 파일 업로드
   - URL: POST, {{URL}}/files
