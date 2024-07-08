@@ -828,7 +828,7 @@ function Detail() {
               */}
               
             </div>
-            <button type="button" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
+            <button type="submit" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
           </form>
         </div>
       </section>
@@ -1184,7 +1184,7 @@ export default Submit;
 <button type="button" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info/1/edit' }>수정</button>
 <button type="button" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info' }>삭제</button>
 <button type="button" className="bg-red-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
-<button type="button" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
+<button type="submit" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
 ```
 
 * 적용후
@@ -1193,7 +1193,7 @@ export default Submit;
 <Button bgColor="gray" onClick={ () => location.href='/info/1/edit' }>수정</Button>
 <Button bgColor="red" onClick={ () => location.href='/info' }>삭제</Button>
 <Button bgColor="red" size="sm">삭제</Button>
-<Button size="sm">댓글 등록</Button>
+<Submit size="sm">댓글 등록</Submit>
 ```
 
 ##### pages/community/Edit.jsx
@@ -1398,7 +1398,7 @@ function CommentNew() {
           */}
           
         </div>
-        <Button size="sm">댓글 등록</Button>
+        <Submit size="sm">댓글 등록</Submit>
       </form>
     </div>
   );
