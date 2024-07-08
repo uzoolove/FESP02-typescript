@@ -1515,7 +1515,7 @@ export default ListItem;
 #### 이메일 중복 체크
 * [회원] ... > New Request
   - Name: 이메일 중복 체크
-  - URL: GET, {{URL}}/users/email
+  - URL: GET, https://api.fesp.shop/users/email
   - Create
 
 * [이메일 중복 체크] > Params > Add Param
