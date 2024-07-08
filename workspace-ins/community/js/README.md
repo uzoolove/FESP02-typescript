@@ -1206,7 +1206,7 @@ export default Submit;
 * 적용후
 ```jsx
 <Submit>수정</Submit>
-Button type="reset" bgColor="gray" onClick={ () => history.back() }>취소</Button>
+<Button type="reset" bgColor="gray" onClick={ () => history.back() }>취소</Button>
 ```
 
 ##### pages/community/New.jsx
