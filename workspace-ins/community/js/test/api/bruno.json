@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "멋사컴",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
