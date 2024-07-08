@@ -612,7 +612,7 @@ export default App;
 * <http://localhost:5173> 접속 테스트
 
 ### 레이아웃 작성
-#### components/layout/index.html
+#### components/layout/index.jsx
 * App.jsx를 복사해서 수정
 ```jsx
 import Header from '@components/layout/Header';
