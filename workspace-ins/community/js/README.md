@@ -1589,7 +1589,7 @@ export default ListItem;
 * [Community] ... > Settings > Script > Post Response
 ```js
 if(res.status === 200){
-  if(req.url === `${ bru.getEnvVar('url') }/users/login`){
+  if(req.url === `${ bru.getEnvVar('URL') }/users/login`){
     bru.setEnvVar('accessToken', res.body.item.token.accessToken);
     bru.setEnvVar('refreshToken', res.body.item.token.refreshToken);
   }else if(req.url === `${ bru.getEnvVar('url') }/auth/refresh`){ // accessToken 재발행 후
