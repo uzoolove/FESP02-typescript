@@ -1485,7 +1485,7 @@ export default ListItem;
 ```
 
 ## API 테스트
-* workspace/community/js/test 폴더 생성
+* `workspace/community/js/test` 폴더 생성
 
 ### bruno 설치
 * bruno 다운로드: <https://www.usebruno.com/downloads>
@@ -1498,9 +1498,9 @@ export default ListItem;
 #### Collection 생성
 * bruno 실행
 * Create Collection
-  - Name: Community
-  - Location: workspace/community/js/test 폴더 선택
-  - Folder Name: api
+  - Name: `Community`
+  - Location: `workspace/community/js/test` 폴더 선택
+  - Folder Name: `api`
 
 #### 폴더 생성
 * [Community] ... > New Folder
@@ -1514,23 +1514,23 @@ export default ListItem;
 ### 회원 기능 테스트
 #### 이메일 중복 체크
 * [회원] ... > New Request
-  - Name: 이메일 중복 체크
+  - Name: `이메일 중복 체크`
   - URL: GET, `https://api.fesp.shop/users/email`
   - Create
 
 * [이메일 중복 체크] > Params > Add Param
-  - Name: email
+  - Name: `email`
   - Value: `u1@market.com`
 
 #### 환경 변수 등록
 * 우측 상단의 환경변수 드롭다운 > Configure > Create Environment
-  - Environment Name: Community-dev
+  - Environment Name: `Community-dev`
   - Add Variable
-    + Name: URL
+    + Name: `URL`
     + Value: `https://api.fesp.shop`
   - Add Variable
-    + Name: name
-    + Value: yongssam
+    + Name: `name`
+    + Value: `yongssam`
       * 게시판 식별자 역할을 할 값이므로 다른 사람과 중복되지 않을 만한 고유한 텍스트 지정
     + Save
 
@@ -1538,18 +1538,18 @@ export default ListItem;
 
 #### 파일 업로드
 * [회원] ... > New Request
-  - Name: 파일 업로드
-  - URL: POST, {{URL}}/files
+  - Name: `파일 업로드`
+  - URL: POST, `{{URL}}/files`
   - Create
 
 * [파일 업로드] > Body > Multipart Form > Add File
-  - Key: attach
+  - Key: `attach`
   - Value: 업로드할 이미지 선택
 
 #### 회원 가입
 * [회원] ... > New Request
-  - Name: 회원 가입
-  - URL: POST, {{URL}}/users
+  - Name: `회원 가입`
+  - URL: POST, `{{URL}}/users`
   - Create
 
 * [회원 가입] > Body > JSON
@@ -1572,8 +1572,8 @@ export default ListItem;
 
 #### 로그인
 * [회원] ... > New Request
-  - Name: 로그인
-  - URL: POST, {{URL}}/users/login
+  - Name: `로그인`
+  - URL: POST, `{{URL}}/users/login`
   - Create
 
 * [로그인] > Body > JSON
@@ -1609,7 +1609,7 @@ if(res.status === 200){
 ### 게시물 기능 테스트
 #### 게시물 등록
 * [게시물] ... > New Request
-  - Name: 게시물 등록
+  - Name: `게시물 등록`
   - URL: POST, `{{URL}}/posts`
   - Create
 
@@ -1624,25 +1624,25 @@ if(res.status === 200){
 
 #### 게시물 목록 조회
 * [게시물] ... > New Request
-  - Name: 게시물 목록 조회
+  - Name: `게시물 목록 조회`
   - URL: GET, `{{URL}}/posts`
   - Create
 
 * [게시물 목록 조회] > Params > Add Param
-  - Name: type
-  - Value: {{name}}
+  - Name: `type`
+  - Value: `{{name}}`
 
 #### 게시물 상세 조회
 * [게시물] ... > New Request
-  - Name: 게시물 상세 조회
-  - URL: GET, {{URL}}/posts/_id
+  - Name: `게시물 상세 조회`
+  - URL: GET, `{{URL}}/posts/_id`
     + _id: [게시물 목록 조회]에서 확인한 게시물의 _id 값으로 대체
   - Create
 
 #### 게시물 수정
 * [게시물] ... > New Request
-  - Name: 게시물 수정
-  - URL: PATCH, {{URL}}/posts/_id
+  - Name: `게시물 수정`
+  - URL: PATCH, `{{URL}}/posts/_id`
     + _id: 게시물의 _id 값으로 대체
   - Create
 
@@ -1656,16 +1656,16 @@ if(res.status === 200){
 
 #### 게시물 삭제
 * [게시물] ... > New Request
-  - Name: 게시물 삭제
-  - URL: DELETE, {{URL}}/posts/_id
+  - Name: `게시물 삭제`
+  - URL: DELETE, `{{URL}}/posts/_id`
     + _id: 게시물의 _id 값으로 대체
   - Create
 
 ### 댓글 기능 테스트
 #### 댓글 등록
 * [댓글] ... > New Request
-  - Name: 댓글 등록
-  - URL: POST, {{URL}}/posts/_id/replies
+  - Name: `댓글 등록`
+  - URL: POST, `{{URL}}/posts/_id/replies`
     + _id: 게시물의 _id 값으로 대체
   - Create
 
@@ -1678,15 +1678,15 @@ if(res.status === 200){
 
 #### 댓글 목록 조회
 * [댓글] ... > New Request
-  - Name: 댓글 목록 조회
-  - URL: GET, {{URL}}/posts/_id/replies
+  - Name: `댓글 목록 조회`
+  - URL: GET, `{{URL}}/posts/_id/replies`
     + _id: 게시물 _id
   - Create
 
 #### 댓글 수정
 * [댓글] ... > New Request
-  - Name: 댓글 수정
-  - URL: PATCH, {{URL}}/posts/post_id/replies/reply_id
+  - Name: `댓글 수정`
+  - URL: PATCH, `{{URL}}/posts/post_id/replies/reply_id`
     + post_id: 게시물 _id
     + reply_id: [댓글 목록 조회]에서 확인한 댓글의 _id 값으로 대체
   - Create
@@ -1700,8 +1700,8 @@ if(res.status === 200){
 
 #### 댓글 삭제
 * [댓글] ... > New Request
-  - Name: 댓글 삭제
-  - URL: DELETE, {{URL}}/posts/post_id/replies/reply_id
+  - Name: `댓글 삭제`
+  - URL: DELETE, `{{URL}}/posts/post_id/replies/reply_id`
     + post_id: 게시물 _id
     + reply_id: 댓글 _id
   - Create
