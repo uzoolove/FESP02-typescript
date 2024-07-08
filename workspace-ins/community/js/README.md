@@ -1515,19 +1515,19 @@ export default ListItem;
 #### 이메일 중복 체크
 * [회원] ... > New Request
   - Name: 이메일 중복 체크
-  - URL: GET, https://api.fesp.shop/users/email
+  - URL: GET, `https://api.fesp.shop/users/email`
   - Create
 
 * [이메일 중복 체크] > Params > Add Param
   - Name: email
-  - Value: u1@market.com
+  - Value: `u1@market.com`
 
 #### 환경 변수 등록
 * 우측 상단의 환경변수 드롭다운 > Configure > Create Environment
   - Environment Name: Community-dev
   - Add Variable
     + Name: URL
-    + Value: https://api.fesp.shop
+    + Value: `https://api.fesp.shop`
   - Add Variable
     + Name: name
     + Value: yongssam
@@ -1592,7 +1592,7 @@ if(res.status === 200){
   if(req.url === `${ bru.getEnvVar('URL') }/users/login`){
     bru.setEnvVar('accessToken', res.body.item.token.accessToken);
     bru.setEnvVar('refreshToken', res.body.item.token.refreshToken);
-  }else if(req.url === `${ bru.getEnvVar('url') }/auth/refresh`){ // accessToken 재발행 후
+  }else if(req.url === `${ bru.getEnvVar('URL') }/auth/refresh`){ // accessToken 재발행 후
     bru.setEnvVar('accessToken', res.body.accessToken);
   }
 }
@@ -1601,7 +1601,7 @@ if(res.status === 200){
 ##### 저장한 토큰을 헤더에 추가
 * 로그인 성공후에 저장해둔 토큰을 요청 헤더에 추가
 * [Community] ... > Settings > Auth > Bearer Token
-  - Token: ```{{accessToken}}```
+  - Token: `{{accessToken}}`
   - Save
 
 * 각 Request의 Auth 값으로 inherite를 선택하면 컬렉션에 설정한 Auth 값이 적용됨
@@ -1610,7 +1610,7 @@ if(res.status === 200){
 #### 게시물 등록
 * [게시물] ... > New Request
   - Name: 게시물 등록
-  - URL: POST, {{URL}}/posts
+  - URL: POST, `{{URL}}/posts`
   - Create
 
 * [게시물 등록] > Body > JSON
@@ -1625,7 +1625,7 @@ if(res.status === 200){
 #### 게시물 목록 조회
 * [게시물] ... > New Request
   - Name: 게시물 목록 조회
-  - URL: GET, {{URL}}/posts
+  - URL: GET, `{{URL}}/posts`
   - Create
 
 * [게시물 목록 조회] > Params > Add Param
