@@ -1,0 +1,18 @@
+meta {
+  name: 장바구니 상품 삭제(여러건)
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{url}}/carts
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "carts": [1, 2]
+  }
+}

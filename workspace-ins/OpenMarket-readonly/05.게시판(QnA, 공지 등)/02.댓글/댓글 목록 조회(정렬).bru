@@ -1,0 +1,16 @@
+meta {
+  name: 댓글 목록 조회(정렬)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/posts/1/replies?sort={"like":-1}
+  body: none
+  auth: none
+}
+
+query {
+  sort: {"like":-1}
+  ~sort: {"_id":-1}
+}

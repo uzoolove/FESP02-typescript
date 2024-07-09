@@ -1,0 +1,21 @@
+meta {
+  name: 게시물 수정
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{url}}/posts/134
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "title": "크기가 얼마나 큰가요?",
+      "content": "6세 아이가 가지고 놀 수 있을 정도로 컸으면 좋겠네요.",
+      "extra": {
+          "image": "sample-hulk.png"
+      }
+  }
+}

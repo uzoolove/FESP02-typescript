@@ -1,0 +1,20 @@
+meta {
+  name: 상품 검색(기본 검색)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/products?minPrice=10000&maxPrice=60000&minShippingFees=0&maxShippingFees=3500&keyword=레고&seller_id=3
+  body: none
+  auth: none
+}
+
+query {
+  minPrice: 10000
+  maxPrice: 60000
+  minShippingFees: 0
+  maxShippingFees: 3500
+  keyword: 레고
+  seller_id: 3
+}

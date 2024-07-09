@@ -1,0 +1,16 @@
+meta {
+  name: 댓글 목록 조회
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/posts/1/replies
+  body: none
+  auth: none
+}
+
+query {
+  ~page: 2
+  ~limit: 2
+}

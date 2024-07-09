@@ -1,0 +1,18 @@
+meta {
+  name: 주문 상태 수정(반품 요청, 주문별)
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{url}}/orders/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "state": "OS110",
+      "memo": "2개 상품 모두 동작하지 않습니다. 반품 요청합니다."
+  }
+}

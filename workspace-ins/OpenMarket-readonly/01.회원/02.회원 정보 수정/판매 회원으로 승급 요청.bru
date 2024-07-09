@@ -1,0 +1,19 @@
+meta {
+  name: 판매 회원으로 승급 요청
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/users/4
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "extra": {
+          "confirm": false
+      }
+  }
+}

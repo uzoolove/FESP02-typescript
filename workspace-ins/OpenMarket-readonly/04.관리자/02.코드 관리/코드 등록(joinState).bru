@@ -1,0 +1,35 @@
+meta {
+  name: 코드 등록(joinState)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/admin/codes
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "_id": "joinState",
+      "title": "판매 회원 승인 코드",
+      "codes": [
+          {
+              "sort": 2,
+              "code": "JS01",
+              "value": "보류"
+          }, {
+              "sort": 3,
+              "code": "JS02",
+              "value": "거부"
+          }, {
+              "sort": 1,
+              "code": "JS03",
+              "value": "승인"
+          }
+      ]
+  }
+  
+}

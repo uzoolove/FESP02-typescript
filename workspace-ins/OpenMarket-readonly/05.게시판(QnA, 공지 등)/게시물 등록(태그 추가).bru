@@ -1,0 +1,23 @@
+meta {
+  name: 게시물 등록(태그 추가)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/posts
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "type": "community",
+      "title": "여행 후기 입니다.",
+      "content": "주말에 다녀온 여행지 입니다. 날씨가 맑아서 좋았어요.",
+      "image": "/files/00-sample/sample-bugatti.png",
+      "tag": "여행,후기,날씨,혼자"
+      
+  }
+}

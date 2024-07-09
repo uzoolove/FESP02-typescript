@@ -1,0 +1,18 @@
+meta {
+  name: 회원 정보 수정(판매회원 승인)
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{url}}/users/3
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "extra.confirm": true
+  }
+}

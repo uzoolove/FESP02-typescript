@@ -1,0 +1,33 @@
+meta {
+  name: 상품 등록(옵션 있는 상품의 메인 정보)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/seller/products
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "price": 1000,
+      "shippingFees": 3000,
+      "quantity": 999999,
+      "buyQuantity": 0,
+      "name": "샤넬 NO.6",
+      "mainImages": [
+        {
+          "path" : "/files/00-sample/sample-channel-01.jpg",
+          "name" : "sample-channel-01.jpg",
+          "originalname": "샤넬.jpg"
+        }
+      ],
+      "content": "샤넬 향수 기본정보 입니다.",
+      "extra": {
+          "depth": 1
+      }
+  }
+}

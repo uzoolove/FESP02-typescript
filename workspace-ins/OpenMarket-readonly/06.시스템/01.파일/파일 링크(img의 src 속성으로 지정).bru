@@ -1,0 +1,15 @@
+meta {
+  name: 파일 링크(img의 src 속성으로 지정)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/files/00-sample/sample-bugatti.png
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  attach: undefined
+}

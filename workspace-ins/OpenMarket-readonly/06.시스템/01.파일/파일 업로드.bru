@@ -1,0 +1,15 @@
+meta {
+  name: 파일 업로드
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/files
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  attach: @file(C:\FES09\FES09-Project-Sample\public\spinner.gif|C:\FES09\FES09-Project-Sample\public\vite.svg)
+}

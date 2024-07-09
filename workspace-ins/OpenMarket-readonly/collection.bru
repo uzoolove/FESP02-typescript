@@ -1,0 +1,24 @@
+headers {
+  client-id: {{client-id}}
+}
+
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+script:post-response {
+  // 로그인 성공 후
+  if(res.status === 200){
+    if(req.url === `${bru.getEnvVar('url')}/users/login`){
+      bru.setEnvVar('accessToken', res.body.item.token.accessToken);
+      bru.setEnvVar('refreshToken', res.body.item.token.refreshToken);
+    }else if(req.url === `${bru.getEnvVar('url')}/auth/refresh`){ // accessToken 재발행 후
+      bru.setEnvVar('accessToken', res.body.accessToken);
+    }
+  }
+  
+}

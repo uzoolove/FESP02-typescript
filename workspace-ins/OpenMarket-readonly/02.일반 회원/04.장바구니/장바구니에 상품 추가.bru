@@ -1,0 +1,18 @@
+meta {
+  name: 장바구니에 상품 추가
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/carts
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "product_id": 4,
+      "quantity": 2
+  }
+}

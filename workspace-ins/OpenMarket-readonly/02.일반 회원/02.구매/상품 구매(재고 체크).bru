@@ -1,0 +1,27 @@
+meta {
+  name: 상품 구매(재고 체크)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "dryRun": true,
+      "products": [
+          {
+              "_id": 3,
+              "quantity": 1
+          },
+          {
+              "_id": 4,
+              "quantity": 2
+          }
+      ]
+  }
+}

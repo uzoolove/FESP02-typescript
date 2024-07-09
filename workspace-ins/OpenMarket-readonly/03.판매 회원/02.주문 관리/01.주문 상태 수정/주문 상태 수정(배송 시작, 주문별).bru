@@ -1,0 +1,24 @@
+meta {
+  name: 주문 상태 수정(배송 시작, 주문별)
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{url}}/seller/orders/2
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "state": "OS035",
+      "memo": "2건 이상 구매한 고객님에 대해 서비스로 물총을 드립니다.",
+      "delivery": {
+          "company": "CJ 대한통운",
+          "trackingNumber": "364746065376",
+          "url": "https://trace.cjlogistics.com/next/tracking.html?wblNo=364746065376"
+      }
+  }
+}

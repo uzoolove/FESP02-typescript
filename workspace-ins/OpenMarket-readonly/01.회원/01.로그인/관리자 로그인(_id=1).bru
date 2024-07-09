@@ -1,0 +1,18 @@
+meta {
+  name: 관리자 로그인(_id=1)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/users/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "email": "admin@market.com",
+      "password": "11111111"
+  }
+}

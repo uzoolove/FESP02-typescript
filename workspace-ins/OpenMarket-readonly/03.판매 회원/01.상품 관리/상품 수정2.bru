@@ -1,0 +1,21 @@
+meta {
+  name: 상품 수정2
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{url}}/seller/products/6
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "extra": {
+          "isNew": true,
+          "isBest": true
+      }
+  }
+}

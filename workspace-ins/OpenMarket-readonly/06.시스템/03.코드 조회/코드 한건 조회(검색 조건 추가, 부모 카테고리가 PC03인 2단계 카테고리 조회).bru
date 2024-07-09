@@ -1,0 +1,17 @@
+meta {
+  name: 코드 한건 조회(검색 조건 추가, 부모 카테고리가 PC03인 2단계 카테고리 조회)
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{url}}/codes/productCategory?depth=2&parent=PC03
+  body: none
+  auth: inherit
+}
+
+query {
+  depth: 2
+  parent: PC03
+}
+

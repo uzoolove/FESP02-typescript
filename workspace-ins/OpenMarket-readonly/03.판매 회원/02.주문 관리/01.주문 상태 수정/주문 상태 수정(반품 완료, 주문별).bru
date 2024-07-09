@@ -1,0 +1,19 @@
+meta {
+  name: 주문 상태 수정(반품 완료, 주문별)
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/seller/orders/2
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "state": "OS130",
+      "memo": "2건의 상품에 대해 왕복 배송비 8000원 제외되고 3영업일 이내에 환불됩니다."
+  }
+}

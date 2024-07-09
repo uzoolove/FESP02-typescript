@@ -1,0 +1,39 @@
+meta {
+  name: 상품 구매(회원 등급 적용, 쿠폰 적용)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "dryRun": true,
+      "discount": {
+          "products": 3000,
+          "shippingFees": 1000
+      },
+      "products": [
+          {
+              "_id": 3,
+              "quantity": 1
+          },
+          {
+              "_id": 4,
+              "quantity": 2
+          },
+          {
+              "_id": 1,
+              "quantity": 1
+          }
+      ],
+      "address": {
+          "name": "학교",
+          "value": "서울시 강남구 역삼동 234"
+      }
+  }
+}

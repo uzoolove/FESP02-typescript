@@ -1,0 +1,17 @@
+meta {
+  name: 게시물 목록 조회(pagination)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/posts?type=qna&page=2&limit=2
+  body: none
+  auth: none
+}
+
+query {
+  type: qna
+  page: 2
+  limit: 2
+}

@@ -1,0 +1,15 @@
+meta {
+  name: 상품 정렬(price 내림차순)
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{url}}/products?sort={"price": -1}
+  body: none
+  auth: none
+}
+
+query {
+  sort: {"price": -1}
+}

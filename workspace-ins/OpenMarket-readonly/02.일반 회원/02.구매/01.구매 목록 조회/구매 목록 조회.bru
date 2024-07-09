@@ -1,0 +1,17 @@
+meta {
+  name: 구매 목록 조회
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/orders?sort={"cost.total": -1}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  sort: {"cost.total": -1}
+  ~custom: {"cost.total":{"$gte":40000}}
+  ~keyword: 레고 클래식
+}

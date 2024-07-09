@@ -1,0 +1,16 @@
+meta {
+  name: 판매자에게 주문한 모든 주문 목록 조회(검색, 2024.04월 주문)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/seller/orders?custom={"createdAt": {"$gte": "2024.04", "$lt": "2024.05"}}
+  body: none
+  auth: inherit
+}
+
+query {
+  custom: {"createdAt": {"$gte": "2024.04", "$lt": "2024.05"}}
+}
+

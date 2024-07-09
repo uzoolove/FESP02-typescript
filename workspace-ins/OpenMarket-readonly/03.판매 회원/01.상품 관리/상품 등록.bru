@@ -1,0 +1,34 @@
+meta {
+  name: 상품 등록
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/seller/products
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "price": 1000,
+      "quantity": 600,
+      "name": "ZOZOFO 테이블 게임 축구 보드 사커 게임기 보드게임 2인경기 완구 가족모임 미니 월드컵 스포츠 어린이 크리스마스 선물 생일 선물",
+      "mainImages": [
+        {
+          "path" : "/files/00-sample/sample-football.jpg",
+          "name" : "sample-football.jpg",
+          "originalname": "사커 게임기.jpg"
+        }
+      ],
+      "content": "<div class=\"product-detail\"><p>ZOZOFO 테이블 게임 축구 보드 사커 게임기 보드게임 2인경기 완구 가족모임 미니 월드컵 스포츠 어린이 크리스마스 선물 생일 선물 상세 설명</p></div>",
+      "extra": {
+          "isNew": true,
+          "isBest": true,
+          "category": ["PC02", "PC0201"],
+          "sort": 7,
+          "depth": 2
+      }
+  }
+}

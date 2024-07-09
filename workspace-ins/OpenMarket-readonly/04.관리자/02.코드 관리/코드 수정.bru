@@ -1,0 +1,41 @@
+meta {
+  name: 코드 수정
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{url}}/admin/codes/membershipClass
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+    "title": "회원 등급",
+    "codes": [
+      {
+        "sort": 1,
+        "code": "MC01",
+        "value": "일반",
+        "discountRate": 0
+      }, {
+        "sort": 2,
+        "code": "MC02",
+        "value": "프리미엄",
+        "discountRate": 10
+      }, {
+        "sort": 3,
+        "code": "MC03",
+        "value": "VIP",
+        "discountRate": 20
+      }, {
+        "sort": 4,
+        "code": "MC04",
+        "value": "VVIP",
+        "discountRate": 30
+      }
+    ]
+  }
+}

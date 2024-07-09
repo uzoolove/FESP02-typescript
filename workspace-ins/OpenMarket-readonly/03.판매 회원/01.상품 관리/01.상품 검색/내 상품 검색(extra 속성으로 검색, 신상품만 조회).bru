@@ -1,0 +1,16 @@
+meta {
+  name: 내 상품 검색(extra 속성으로 검색, 신상품만 조회)
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{url}}/seller/products?extra={"extra.isNew": true}
+  body: none
+  auth: inherit
+}
+
+query {
+  extra: {"extra.isNew": true}
+}
+

@@ -1,0 +1,15 @@
+meta {
+  name: 이메일 중복 체크
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/users/email?email=s1@market.com
+  body: none
+  auth: none
+}
+
+query {
+  email: s1@market.com
+}

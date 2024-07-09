@@ -1,0 +1,19 @@
+meta {
+  name: 파일 다운로드(브라우저에서 요청하면 파일이 다운로드 됨)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/files/download/00-sample/sample-bugatti.png?name=레고 부가티.jpg
+  body: multipartForm
+  auth: none
+}
+
+query {
+  name: 레고 부가티.jpg
+}
+
+body:multipart-form {
+  attach: undefined
+}

@@ -1,0 +1,16 @@
+meta {
+  name: 구매 목록 조회(pagination)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/orders?page=1&limit=2
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 2
+}

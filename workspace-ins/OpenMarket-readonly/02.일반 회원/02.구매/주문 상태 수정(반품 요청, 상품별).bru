@@ -1,0 +1,18 @@
+meta {
+  name: 주문 상태 수정(반품 요청, 상품별)
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{url}}/orders/2/products/3
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "state": "OS110",
+      "memo": "레고 클래식 상품이 동작하지 않습니다. 반품 요청합니다."
+  }
+}

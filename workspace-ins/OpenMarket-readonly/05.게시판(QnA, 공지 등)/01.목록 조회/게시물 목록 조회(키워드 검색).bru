@@ -1,0 +1,18 @@
+meta {
+  name: 게시물 목록 조회(키워드 검색)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/posts?type=community&keyword=혼자
+  body: none
+  auth: none
+}
+
+query {
+  type: community
+  keyword: 혼자
+  ~keyword: 여행
+  ~type: qna
+}

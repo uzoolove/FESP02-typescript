@@ -1,0 +1,16 @@
+meta {
+  name: 상품 목록 조회
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/products?showSoldOut=true
+  body: none
+  auth: none
+}
+
+params:query {
+  showSoldOut: true
+  ~seller_id: 3
+}

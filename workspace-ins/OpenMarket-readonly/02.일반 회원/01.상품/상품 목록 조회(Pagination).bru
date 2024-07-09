@@ -1,0 +1,16 @@
+meta {
+  name: 상품 목록 조회(Pagination)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/products?page=3&limit=3
+  body: none
+  auth: none
+}
+
+query {
+  page: 3
+  limit: 3
+}

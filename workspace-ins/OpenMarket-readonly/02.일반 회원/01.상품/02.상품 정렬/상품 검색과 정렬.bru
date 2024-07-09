@@ -1,0 +1,16 @@
+meta {
+  name: 상품 검색과 정렬
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{url}}/products?seller_id=2&sort={"price": 1}
+  body: none
+  auth: none
+}
+
+query {
+  seller_id: 2
+  sort: {"price": 1}
+}

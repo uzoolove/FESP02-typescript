@@ -1,0 +1,18 @@
+meta {
+  name: 댓글 수정
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/posts/1/replies/2
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "content": "상세정보에서 찾을수 없습니다."
+  }
+}

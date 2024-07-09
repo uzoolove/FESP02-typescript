@@ -1,0 +1,12 @@
+meta {
+  name: 댓글 삭제
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{url}}/posts/1/replies/2
+  body: json
+  auth: inherit
+}
+

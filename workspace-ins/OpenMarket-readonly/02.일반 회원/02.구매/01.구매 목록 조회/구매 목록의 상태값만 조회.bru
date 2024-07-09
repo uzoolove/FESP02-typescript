@@ -1,0 +1,11 @@
+meta {
+  name: 구매 목록의 상태값만 조회
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/orders/state
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Access Token 재발행
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/auth/refresh
+  body: none
+  auth: inherit
+}
+
+auth:bearer {
+  token: {{refreshToken}}
+}

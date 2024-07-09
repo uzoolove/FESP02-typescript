@@ -1,0 +1,15 @@
+meta {
+  name: 상품 검색(extra 속성으로 검색, OR 검색 2)
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{url}}/products?custom={"extra.isNew":{"$in":[true, false]},"_id":{"$in":[1,2,3]}}
+  body: none
+  auth: none
+}
+
+query {
+  custom: {"extra.isNew":{"$in":[true, false]},"_id":{"$in":[1,2,3]}}
+}

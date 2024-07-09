@@ -1,0 +1,16 @@
+meta {
+  name: 상품 정렬(북마크, 리뷰순)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/products?sort={"bookmarks": -1}
+  body: none
+  auth: none
+}
+
+query {
+  sort: {"bookmarks": -1}
+  ~sort: {"replies": -1}
+}

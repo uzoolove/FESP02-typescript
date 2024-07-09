@@ -1,0 +1,16 @@
+meta {
+  name: 내 상품 검색(extra 속성으로 검색, 카테고리가 PC01만 조회)
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{url}}/seller/products?extra={"extra.category.0": "PC01"}
+  body: none
+  auth: inherit
+}
+
+query {
+  extra: {"extra.category.0": "PC01"}
+}
+

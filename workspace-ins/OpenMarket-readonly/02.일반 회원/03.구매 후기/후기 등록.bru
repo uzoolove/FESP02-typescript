@@ -1,0 +1,23 @@
+meta {
+  name: 후기 등록
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "order_id": 1,
+      "product_id": 3,
+      "rating": 3,
+      "content": "배송이 너무 느려요.",
+      "extra": {
+        "title": "배송 불만"
+      }
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: 장바구니 상품 수량 수정
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/carts/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "quantity": 3
+  }
+}

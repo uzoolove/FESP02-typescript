@@ -1,0 +1,15 @@
+meta {
+  name: 구매 목록 정렬(구매일 오름차순)
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{url}}/orders?sort={"createdAt": 1}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  sort: {"createdAt": 1}
+}

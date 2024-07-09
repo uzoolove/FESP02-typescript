@@ -1,0 +1,15 @@
+meta {
+  name: 상품 검색(extra 속성으로 검색, 카테고리가 PC03만 조회)
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{url}}/products?custom={"extra.category.0": "PC03"}
+  body: none
+  auth: none
+}
+
+query {
+  custom: {"extra.category.0": "PC03"}
+}

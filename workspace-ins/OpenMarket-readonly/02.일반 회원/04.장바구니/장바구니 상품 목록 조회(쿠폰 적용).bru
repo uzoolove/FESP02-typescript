@@ -1,0 +1,21 @@
+meta {
+  name: 장바구니 상품 목록 조회(쿠폰 적용)
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{url}}/carts
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "discount": {
+          "products": 2000,
+          "shippingFees": 1000
+      }
+  }
+}

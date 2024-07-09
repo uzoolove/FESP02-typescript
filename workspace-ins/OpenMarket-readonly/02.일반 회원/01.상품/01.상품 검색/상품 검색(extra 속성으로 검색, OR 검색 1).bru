@@ -1,0 +1,15 @@
+meta {
+  name: 상품 검색(extra 속성으로 검색, OR 검색 1)
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{url}}/products?custom={"$or":[{"extra.isNew":true},{"extra.isBest":true}]}
+  body: none
+  auth: none
+}
+
+query {
+  custom: {"$or":[{"extra.isNew":true},{"extra.isBest":true}]}
+}

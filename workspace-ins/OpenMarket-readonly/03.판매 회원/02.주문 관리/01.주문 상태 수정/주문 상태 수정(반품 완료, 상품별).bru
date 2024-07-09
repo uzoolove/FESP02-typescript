@@ -1,0 +1,19 @@
+meta {
+  name: 주문 상태 수정(반품 완료, 상품별)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/seller/orders/2/products/3
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "state": "OS130",
+      "memo": "레고 클래식 상품에 대해 왕복 배송비 6000원 제외되고 3영업일 이내에 환불됩니다."
+  }
+}

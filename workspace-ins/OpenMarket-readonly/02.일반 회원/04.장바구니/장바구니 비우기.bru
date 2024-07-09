@@ -1,0 +1,12 @@
+meta {
+  name: 장바구니 비우기
+  type: http
+  seq: 11
+}
+
+delete {
+  url: {{url}}/carts/cleanup
+  body: none
+  auth: inherit
+}
+

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "OpenMarket-수정금지",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

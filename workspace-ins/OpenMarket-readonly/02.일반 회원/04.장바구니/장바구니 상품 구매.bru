@@ -1,0 +1,31 @@
+meta {
+  name: 장바구니 상품 구매
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "cart",
+      "products": [
+          {
+              "_id": 1,
+              "quantity": 2
+          },
+          {
+              "_id": 2,
+              "quantity": 1
+          }
+      ],
+      "address": {
+          "name": "학교",
+          "value": "서울시 강남구 역삼동 234"
+      }
+  }
+}

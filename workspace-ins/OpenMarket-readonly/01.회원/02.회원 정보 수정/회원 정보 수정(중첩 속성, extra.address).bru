@@ -1,0 +1,32 @@
+meta {
+  name: 회원 정보 수정(중첩 속성, extra.address)
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/users/4
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "extra": {
+          "birthday": "11-30",
+          "membershipClass": "MC03",
+          "address": [
+              {
+                  "id": 1,
+                  "name": "회사",
+                  "value": "서울시 강남구 삼성동 111"
+              },
+              {
+                  "id": 2,
+                  "name": "학교",
+                  "value": "서울시 강남구 역삼동 222"
+              }
+          ]
+      }
+  }
+}

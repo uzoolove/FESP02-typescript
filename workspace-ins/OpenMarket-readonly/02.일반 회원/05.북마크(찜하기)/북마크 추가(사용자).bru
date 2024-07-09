@@ -1,0 +1,18 @@
+meta {
+  name: 북마크 추가(사용자)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/bookmarks/user/2
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "memo": "항상 배송도 빨리해주고 좋습니다."
+  }
+}

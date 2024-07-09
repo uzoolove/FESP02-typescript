@@ -1,0 +1,20 @@
+meta {
+  name: 북마크 추가(게시글)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/bookmarks/post/1
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "type": "post",
+      "target_id": 1,
+      "memo": "크기 문의"
+  }
+}

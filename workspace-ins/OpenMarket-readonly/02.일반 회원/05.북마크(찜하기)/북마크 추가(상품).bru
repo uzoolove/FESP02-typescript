@@ -1,0 +1,18 @@
+meta {
+  name: 북마크 추가(상품)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/bookmarks/product/3
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "memo": "잘 구매했습니다."
+  }
+}

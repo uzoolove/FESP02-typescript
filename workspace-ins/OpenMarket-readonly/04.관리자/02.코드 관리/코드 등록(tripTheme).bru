@@ -1,0 +1,35 @@
+meta {
+  name: 코드 등록(tripTheme)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/admin/codes
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "_id": "tripTheme",
+      "title": "여행지 테마 코드",
+      "codes": [
+          {
+              "sort": 2,
+              "code": "TT01",
+              "value": "맛집탐방"
+          }, {
+              "sort": 3,
+              "code": "TT02",
+              "value": "이색체험"
+          }, {
+              "sort": 1,
+              "code": "TT03",
+              "value": "음주가무"
+          }
+      ]
+  }
+  
+}

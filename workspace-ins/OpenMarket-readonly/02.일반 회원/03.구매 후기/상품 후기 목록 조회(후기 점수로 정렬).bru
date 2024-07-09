@@ -1,0 +1,16 @@
+meta {
+  name: 상품 후기 목록 조회(후기 점수로 정렬)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/replies/products/2?sort={"rating": 1}&rating=4
+  body: none
+  auth: none
+}
+
+query {
+  sort: {"rating": 1}
+  rating: 4
+}

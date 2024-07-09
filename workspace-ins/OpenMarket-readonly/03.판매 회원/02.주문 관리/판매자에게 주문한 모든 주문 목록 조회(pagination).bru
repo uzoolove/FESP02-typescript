@@ -1,0 +1,17 @@
+meta {
+  name: 판매자에게 주문한 모든 주문 목록 조회(pagination)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{url}}/seller/orders?page=2&limit=2
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 2
+  limit: 2
+}
+

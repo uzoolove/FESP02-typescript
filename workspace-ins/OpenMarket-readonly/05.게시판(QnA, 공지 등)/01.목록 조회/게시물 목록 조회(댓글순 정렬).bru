@@ -1,0 +1,16 @@
+meta {
+  name: 게시물 목록 조회(댓글순 정렬)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{url}}/posts?type=qna&sort={"repliesCount":-1}
+  body: none
+  auth: none
+}
+
+query {
+  type: qna
+  sort: {"repliesCount":-1}
+}

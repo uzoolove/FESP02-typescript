@@ -1,0 +1,26 @@
+meta {
+  name: 장바구니 상품 전체 교체
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{url}}/carts/replace
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "products": [
+          {
+              "_id": 3,
+              "quantity": 2
+          },
+          {
+              "_id": 4,
+              "quantity": 3
+          }
+      ]
+  }
+}

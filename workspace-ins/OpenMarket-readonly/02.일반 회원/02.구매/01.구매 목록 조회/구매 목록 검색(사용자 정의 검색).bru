@@ -1,0 +1,15 @@
+meta {
+  name: 구매 목록 검색(사용자 정의 검색)
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{url}}/orders?custom={"createdAt": {"$gte": "2023.12.05", "$lt": "2023.12.06"}, "cost.total": {"$gte": 100000}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  custom: {"createdAt": {"$gte": "2023.12.05", "$lt": "2023.12.06"}, "cost.total": {"$gte": 100000}}
+}

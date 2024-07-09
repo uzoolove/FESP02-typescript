@@ -1,0 +1,15 @@
+meta {
+  name: 상품 검색(범위 검색, 등록일이 2024-03-20 이후인 상품)
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{url}}/products?custom={"createdAt": {"$gte": "2024.03.20"}}
+  body: none
+  auth: none
+}
+
+query {
+  custom: {"createdAt": {"$gte": "2024.03.20"}}
+}

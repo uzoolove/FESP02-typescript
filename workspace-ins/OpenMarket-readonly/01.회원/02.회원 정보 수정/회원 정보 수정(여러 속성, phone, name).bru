@@ -1,0 +1,18 @@
+meta {
+  name: 회원 정보 수정(여러 속성, phone, name)
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{url}}/users/4
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "phone": "01099998888",
+      "name": "네오2"
+  }
+}

@@ -1,0 +1,16 @@
+meta {
+  name: 판매자에게 주문한 모든 주문 목록 조회(검색, 결제 완료 상테)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/seller/orders?state=OS020
+  body: none
+  auth: inherit
+}
+
+query {
+  state: OS020
+}
+

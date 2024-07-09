@@ -1,0 +1,15 @@
+meta {
+  name: 구매 목록 검색(기본 검색)
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{url}}/orders?keyword=레고
+  body: none
+  auth: inherit
+}
+
+params:query {
+  keyword: 레고
+}

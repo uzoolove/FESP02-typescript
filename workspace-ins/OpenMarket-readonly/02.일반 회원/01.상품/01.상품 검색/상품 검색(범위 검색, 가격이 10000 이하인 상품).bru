@@ -1,0 +1,15 @@
+meta {
+  name: 상품 검색(범위 검색, 가격이 10000 이하인 상품)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{url}}/products?custom={"price":{"$lte":10000}}
+  body: none
+  auth: none
+}
+
+query {
+  custom: {"price":{"$lte":10000}}
+}

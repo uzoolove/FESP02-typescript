@@ -1,0 +1,16 @@
+meta {
+  name: 내 상품 정렬(price 오름차순)
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{url}}/seller/products?sort={"price": 1}
+  body: none
+  auth: inherit
+}
+
+query {
+  sort: {"price": 1}
+}
+

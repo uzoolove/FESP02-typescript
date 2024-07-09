@@ -1,0 +1,20 @@
+meta {
+  name: 상품 수정1
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{url}}/seller/products/6
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "price": 22000,
+    "shippingFees": 3000,
+    "show": true,
+    "extra.isNew": false
+  }
+}

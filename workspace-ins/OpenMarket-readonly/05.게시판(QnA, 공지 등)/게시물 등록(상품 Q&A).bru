@@ -1,0 +1,21 @@
+meta {
+  name: 게시물 등록(상품 Q&A)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/posts
+  body: json
+  auth: inherit
+}
+
+
+body:json {
+  {
+      "type": "qna",
+      "product_id": 2,
+      "title": "배송은 얼마나 걸려요?",
+      "content": "주말에 여행가기 전까지 오면 좋겠네요."
+  }
+}
