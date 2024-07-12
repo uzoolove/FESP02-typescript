@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{url}}/posts?type=qna&page=2&limit=2
+  url: {{url}}/posts?type=info&page=2&limit=5
   body: none
   auth: none
 }
 
-query {
-  type: qna
+params:query {
+  type: info
   page: 2
-  limit: 2
+  limit: 5
 }
