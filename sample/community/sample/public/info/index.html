@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>정보 공유 - 멋사컴</title>
 
@@ -26,13 +25,22 @@
   <body>
     <div id="root">
 
+      <!-- 전체 화면 로딩중
+      <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-10">
+        <div className="flex flex-col items-center">
+          <h3 className="mb-4 text-lg font-semibold">잠시만 기다려주세요.</h3>
+          <RingLoader color="#F97316" />
+        </div>
+      </div>
+      -->
+
       <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
 
         <header class="px-8 min-w-80 bg-slate-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 transition-color duration-500 ease-in-out">
           <nav class="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
             <div class="w-1/2 order-1 md:w-auto">
               <a href="/" class="flex items-center gap-2">
-                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" heoght="40" alt="로고 이미지" />
                 <span class="text-lg font-bold">멋사컴</span>
               </a>
             </div>
@@ -46,22 +54,11 @@
 
             <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-              <!-- 로그인 후 -->
-              <!--
-              <p class="flex items-center">
-                <img class="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-                용쌤님 :)
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/'">로그아웃</button>
-              </p>
-              -->
-
-              <!-- 로그인 전 -->
               <div class="flex justify-end">
-                <button type="button" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/login'">로그인</button>
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/signup'">회원가입</button>
+                <a href="/user/login" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+                <a href="/user/signup" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
               </div>
 
-              <!-- 라이트/다크 모드 전환 -->
               <button
                 type="button"
                 data-toggle-dark="dark"
@@ -94,15 +91,13 @@
           </nav>
         </header>
 
-        <!-- 페이지 본문 -->
         <main class="min-w-80 p-10">
           <div class="text-center py-4">
             <h2 class="pb-4 text-2xl font-bold text-gray-700 dark:text-gray-200">정보 공유</h2>
           </div>
           <div class="flex justify-end mr-4">
             
-            <!-- 검색 -->
-            <form onsubmit="location.href=''">
+            <form action="#">
               <input
                 class="dark:bg-gray-600 bg-gray-100 p-1 rounded"
                 type="text"
@@ -111,7 +106,7 @@
               <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">검색</button>
             </form>
 
-            <button type="button" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/info/new'">글작성</button>
+            <a href="/info/new" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">글작성</a>
           </div>
           <section class="pt-10">
             <table class="border-collapse w-full table-fixed">
@@ -134,24 +129,10 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- 로딩 상태 표시 -->
-                <!--
-                  <tr>
-                    <td colSpan="6" class="py-20 text-center"><div className="flex justify-center">로딩중...</div></td>
-                  </tr>
-                -->
 
-                <!-- 에러 메세지 출력 -->
-                <!--
-                  <tr>
-                    <td colSpan="6" class="py-20 text-center"><div className="flex justify-center">에러 메세지</div></td>
-                  </tr>
-                -->
-
-                <!-- 본문 출력 -->
                 <tr class="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
                   <td class="p-2 text-center">2</td>
-                  <td class="p-2 truncate indent-4 cursor-pointer" onclick="location.href='/info/2'">안녕하세요.</td>
+                  <td class="p-2 truncate indent-4"><a href="/info/2" class="cursor-pointer">안녕하세요.</a></td>
                   <td class="p-2 text-center truncate">용쌤</td>
                   <td class="p-2 text-center hidden sm:table-cell">29</td>
                   <td class="p-2 text-center hidden sm:table-cell">2</td>
@@ -159,7 +140,7 @@
                 </tr>
                 <tr class="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
                   <td class="p-2 text-center">1</td>
-                  <td class="p-2 truncate indent-4 cursor-pointer" onclick="location.href='/info/1'">좋은 소식이 있습니다.</td>
+                  <td class="p-2 truncate indent-4"><a href="/info/1" class="cursor-pointer">좋은 소식이 있습니다.</a></td>
                   <td class="p-2 text-center truncate">제이지</td>
                   <td class="p-2 text-center hidden sm:table-cell">22</td>
                   <td class="p-2 text-center hidden sm:table-cell">5</td>
@@ -169,10 +150,9 @@
             </table>
             <hr />
     
-            <!-- 페이지네이션 -->
             <div>
               <ul class="flex justify-center gap-3 m-4">
-                <li class="text-bold text-blue-700">
+                <li class="font-bold text-blue-700">
                   <a href="/info?page=1">1</a>
                 </li>
                 <li>

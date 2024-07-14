@@ -46,22 +46,11 @@
 
             <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-              <!-- 로그인 후 -->
-              <!--
-              <p class="flex items-center">
-                <img class="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-                용쌤님 :)
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/'">로그아웃</button>
-              </p>
-              -->
-
-              <!-- 로그인 전 -->
               <div class="flex justify-end">
                 <button type="button" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/login'">로그인</button>
                 <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/signup'">회원가입</button>
               </div>
 
-              <!-- 라이트/다크 모드 전환 -->
               <button
                 type="button"
                 data-toggle-dark="dark"
@@ -94,7 +83,6 @@
           </nav>
         </header>
 
-        <!-- 페이지 본문 -->
         <main class="min-w-[320px] p-4">
           <div class="text-center py-4">
             <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
@@ -111,8 +99,8 @@
                   name="title"
                   value="좋은 소식이 있습니다."
                 />
-                <!-- 입력값 검증 에러 출력 -->
-                <!-- <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> -->
+
+                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">제목은 필수 입니다.</p>
               </div>
               <div class="my-4">
                 <label class="block text-lg content-center" htmlFor="content">내용</label>
@@ -125,8 +113,8 @@
                 >좋은 소식을 가지고 왔습니다.
 오늘 드디어 최종 면접을 합니다.
 많이 응원해 주세요^^</textarea>
-                <!-- 입력값 검증 에러 출력 -->
-                <!-- <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> -->
+
+                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">내용은 필수입니다.</p>
               </div>
               <hr />
               <div class="flex justify-end my-6">
