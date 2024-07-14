@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>게시글 수정 - 멋사컴</title>
 
@@ -32,7 +31,7 @@
           <nav class="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
             <div class="w-1/2 order-1 md:w-auto">
               <a href="/" class="flex items-center gap-2">
-                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
                 <span class="text-lg font-bold">멋사컴</span>
               </a>
             </div>
@@ -47,8 +46,8 @@
             <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
               <div class="flex justify-end">
-                <button type="button" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/login'">로그인</button>
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/signup'">회원가입</button>
+                <a href="/user/login" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+                <a href="/user/signup" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
               </div>
 
               <button
@@ -88,7 +87,7 @@
             <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
           </div>
           <section class="mb-8 p-4">
-            <form onsubmit="event.preventDefault(); history.back();">
+            <form action="/info/1">
               <div class="my-4">
                 <label class="block text-lg content-center" htmlFor="title">제목</label>
                 <input
@@ -119,7 +118,7 @@
               <hr />
               <div class="flex justify-end my-6">
                 <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
-                <button type="reset" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="history.back()">취소</button>
+                <a href="/info/1" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
               </div>
             </form>
           </section>
