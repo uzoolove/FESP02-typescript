@@ -5,12 +5,12 @@ meta {
 }
 
 get {
-  url: {{url}}/files/download/00-sample/sample-bugatti.png?name=레고 부가티.jpg
+  url: {{url}}/files/download/{{client-id}}/sample-bugatti.png?name=레고 부가티.jpg
   body: multipartForm
   auth: none
 }
 
-query {
+params:query {
   name: 레고 부가티.jpg
 }
 
