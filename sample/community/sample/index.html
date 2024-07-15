@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
 
@@ -32,7 +31,7 @@
           <nav class="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
             <div class="w-1/2 order-1 md:w-auto">
               <a href="/" class="flex items-center gap-2">
-                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
                 <span class="text-lg font-bold">멋사컴</span>
               </a>
             </div>
@@ -46,22 +45,11 @@
 
             <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-              <!-- 로그인 후 -->
-              <!--
-              <p class="flex items-center">
-                <img class="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-                용쌤님 :)
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/'">로그아웃</button>
-              </p>
-              -->
-
-              <!-- 로그인 전 -->
               <div class="flex justify-end">
-                <button type="button" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/login'">로그인</button>
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/signup'">회원가입</button>
+                <a href="/user/login" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+                <a href="/user/signup" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
               </div>
 
-              <!-- 라이트/다크 모드 전환 -->
               <button
                 type="button"
                 data-toggle-dark="dark"
@@ -94,8 +82,7 @@
           </nav>
         </header>
 
-        <!-- 페이지 본문 -->
-        <main class="container mx-auto mt-10 p-4">
+        <main class="container mx-auto mt-10 p-4 transition-color">
           <section class="text-center">
             <h1 class="text-4xl font-bold mb-4">멋사컴에 오신 것을 환영합니다!</h1>
             <p class="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>

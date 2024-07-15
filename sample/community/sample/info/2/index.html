@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
+    <title>안녕하세요. - 멋사컴</title>
 
     <!-- 기본 meta 태그 -->
     <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
@@ -13,11 +12,11 @@
     <meta name="author" content="FESP 2기" />
 
     <!-- Open Graph meta 태그 (소셜 미디어용) -->
-    <meta property="og:title" content="멋사컴에 오신걸 환영합니다." />
-    <meta property="og:description" content="유용한 정보를 나누고 공유하세요." />
+    <meta property="og:title" content="안녕하세요." />
+    <meta property="og:description" content="가입 인사드립니다. 반가워요." />
     <meta property="og:image" content="/images/fesp.webp" />
-    <meta property="og:url" content="https://community.fesp.shop" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://community.fesp.shop/info/1" />
+    <meta property="og:type" content="article" />
     <meta property="og:site_name" content="멋사컴" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,7 +31,7 @@
           <nav class="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
             <div class="w-1/2 order-1 md:w-auto">
               <a href="/" class="flex items-center gap-2">
-                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
                 <span class="text-lg font-bold">멋사컴</span>
               </a>
             </div>
@@ -46,22 +45,19 @@
 
             <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-              <!-- 로그인 후 -->
-              <!--
-              <p class="flex items-center">
-                <img class="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-                용쌤님 :)
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/'">로그아웃</button>
-              </p>
-              -->
+              <form action="/">
+                <p class="flex items-center">
+                  <img 
+                    class="w-8 rounded-full mr-2" 
+                    src="https://api.fesp.shop/files/00-sample/user-muzi.webp" 
+                    width="40" 
+                    height="40" 
+                    alt="프로필 이미지" />
+                  용쌤님 :)
+                  <button type="submit" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그아웃</button>
+                </p>
+              </form>
 
-              <!-- 로그인 전 -->
-              <div class="flex justify-end">
-                <button type="button" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/login'">로그인</button>
-                <button type="button" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onclick="location.href='/user/signup'">회원가입</button>
-              </div>
-
-              <!-- 라이트/다크 모드 전환 -->
               <button
                 type="button"
                 data-toggle-dark="dark"
@@ -69,7 +65,7 @@
               >
                 <svg
                   data-toggle-icon="moon"
-                  class="w-3.5 h-3.5 hidden"
+                  class="w-3.5 h-3.5"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -79,7 +75,7 @@
                 </svg>
                 <svg
                   data-toggle-icon="sun"
-                  class="w-3.5 h-3.5"
+                  class="w-3.5 h-3.5 hidden"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -94,14 +90,12 @@
           </nav>
         </header>
 
-        <!-- 페이지 본문 -->
-        <div className="py-20 bg-red-100 border border-red-400 text-red-700 p-4 rounded-lg flex flex-col items-center space-y-2">
-          <h2 className="text-xl font-semibold mb-2 text-center">🚧 앗, 무언가 잘못됐네요!</h2>
-          <h3 className="text-md font-semibold mb-2 text-center">존재하지 않는 페이지입니다.</h3>
-          <p className="pt-12 text-center">이 오류는 더 나은 서비스를 위한 첫걸음이에요. 조금만 기다려 주세요!</p>
-          <button className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600">
-            ⚙️ 문제 해결하기
-          </button>
+        <!-- 메인 영역 로딩중 -->
+        <div class="flex items-center justify-center" style="height: 300px">
+          <div class="text-center">
+            <h3 class="mb-4 text-lg font-semibold">잠시만 기다려주세요.</h3>
+            <span>로딩중...</span>
+          </div>
         </div>
         
         <footer class="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
