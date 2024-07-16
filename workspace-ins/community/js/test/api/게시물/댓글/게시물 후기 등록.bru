@@ -1,0 +1,17 @@
+meta {
+  name: 게시물 후기 등록
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{URL}}/posts/1/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "content": "댓글 추가." 
+  }
+}
