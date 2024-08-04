@@ -16,8 +16,12 @@ cd js
 npm i
 ```
 
-## 샘플 HTML 복사
-* workspace/community/sample/public/ -> workspace/community/js/public/ 복사
+### 화면 테스트
+```sh
+cd workspace/community
+npx serve sample
+```
+* <http://localhost:3000> 접속 테스트
 
 ### 페이지 구조
 ```
@@ -41,12 +45,6 @@ public/
 |       └── index.html        // 회원 가입 페이지
 └── index.html                // 커뮤니티 메인 페이지
 ```
-
-### 화면 테스트
-```sh
-npx serve public
-```
-* <http://localhost:3000> 접속 테스트
 
 ## 스타일 적용
 ### tailwind 설치
@@ -100,14 +98,14 @@ export default {
 ```json
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["/*"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@pages/*": ["pages/*"],
-      "@recoil/*": ["recoil/*"],
-      "@zustand/*": ["zustand/*"]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@recoil/*": ["src/recoil/*"],
+      "@zustand/*": ["src/zustand/*"]
     }
   }
 }
@@ -140,18 +138,21 @@ export default defineConfig({
 ...
 rules: {
   ...
-  'react/prop-types': 'off'
+  'react/prop-types': 'off',
 },
 ```
 
 #### 추가 패키지 설치
 ```sh
-npm i react-router-dom react-hook-form react-csspin react-infinite-scroller recoil recoil-persist zustand @tanstack/react-query @tanstack/react-query-devtools immer lodash
+npm i react-router-dom react-hook-form recoil recoil-persist zustand @tanstack/react-query @tanstack/react-query-devtools react-spinners
 ```
 
+### 이미지 복사
+* community/sample/images -> community/js/public/images 로 복사
+
 ### 메인페이지 작성
-* index.html 수정
-* workspace/community/js/public/index.html의 `<head>` 부분으로 교체
+* community/js/index.html 수정
+* community/sample/index.html의 `<head>` 부분으로 교체
   - `<head>`의 `<script src="https://cdn.tailwindcss.com"></script>` 삭제
 
 ```html
@@ -160,7 +161,6 @@ npm i react-router-dom react-hook-form react-csspin react-infinite-scroller reco
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
 
@@ -176,6 +176,7 @@ npm i react-router-dom react-hook-form react-csspin react-infinite-scroller reco
     <meta property="og:url" content="https://community.fesp.shop" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="멋사컴" />
+
   </head>
   <body>
     <div id="root"></div>
@@ -186,11 +187,11 @@ npm i react-router-dom react-hook-form react-csspin react-infinite-scroller reco
 
 ### App 컴포넌트 작성
 * src/App.jsx 수정
-* workspace/community/js/public/index.html의 `<div id="root">` 하위 태그 복사
+* community/sample/index.html의 `<div id="root">` 하위 태그 복사
 ```jsx
 function App() {
   return (
-    <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
+    <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
       ......
     </div>
   );
@@ -200,32 +201,21 @@ export default App;
 ```
 
 * JSX 문법에 맞춰서 수정
-  - html 주석을 JSX 주석으로 변환
-    + Ctrl + F
-
-      `<!--` 찾아 바꾸기 `{/*`
-
-      `-->` 찾아 바꾸기 `*/}`
-
   - class -> className
   - for -> htmlFor
-  - 이벤트 수정
-    ```jsx
-    onclick="location.href='/user/login'"
-    ```
-    ```jsx
-    onClick={ () => location.href='/user/login' }
-    ```
+
 * App.jsx
 ```jsx
 function App() {
+
   return (
     <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
+
       <header className="px-8 min-w-80 bg-slate-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 transition-color duration-500 ease-in-out">
         <nav className="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
           <div className="w-1/2 order-1 md:w-auto">
             <a href="/" className="flex items-center gap-2">
-              <img className="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+              <img className="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
               <span className="text-lg font-bold">멋사컴</span>
             </a>
           </div>
@@ -239,22 +229,11 @@ function App() {
 
           <div className="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-            {/* 로그인 후 */}
-            {/*
-            <p className="flex items-center">
-              <img className="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-              용쌤님 :)
-              <button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/login' }>로그아웃</button>
-            </p>
-            */}
-
-            {/* 로그인 전 */}
             <div className="flex justify-end">
-              <button type="button" className="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/login' }>로그인</button>
-              <button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/signup' }>회원가입</button>
+              <a href="/user/login" className="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+              <a href="/user/signup" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
             </div>
 
-            {/* 라이트/다크 모드 전환 */}
             <button
               type="button"
               data-toggle-dark="dark"
@@ -287,14 +266,13 @@ function App() {
         </nav>
       </header>
 
-      {/* 페이지 본문 */}
-      <main className="container mx-auto mt-10 p-4">
+      <main className="container mx-auto mt-10 p-4 transition-color">
         <section className="text-center">
           <h1 className="text-4xl font-bold mb-4">멋사컴에 오신 것을 환영합니다!</h1>
           <p className="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>
           <a href="/" className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">커뮤니티 참여하기</a>
         </section>
-  
+
         <section className="mt-16">
           <h2 className="text-2xl font-bold mb-4 text-center">주요 기능</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -341,6 +319,7 @@ export default App
 
 ### 테스트
 ```sh
+cd workspace/community/js
 npm run dev
 ```
 
@@ -356,26 +335,24 @@ src/
 │   │   ├── Header.jsx
 │   │   └── index.jsx
 │   ├── Button.jsx
+│   ├── InputError.jsx
 │   ├── Pagination.jsx
 │   ├── Search.jsx
 │   ├── Spinner.jsx
 │   ├── Submit.jsx
 │   └── Theme.jsx
 │
-├── hooks/
-│   └── useFetch.js
-│
 ├── pages/
 │   ├── community/
 │   │   ├── CommentItem.jsx
 │   │   ├── CommentList.jsx
 │   │   ├── CommentNew.jsx
-│   │   ├── Edit.jsx
 │   │   ├── Detail.jsx
+│   │   ├── Edit.jsx
+│   │   ├── index.jsx
 │   │   ├── List.jsx
 │   │   ├── ListItem.jsx
-│   │   ├── New.jsx
-│   │   └── index.jsx
+│   │   └── New.jsx
 │   ├── user/
 │   │   ├── Login.jsx
 │   │   └── Signup.jsx
@@ -398,7 +375,6 @@ import Community from "@pages/community";
 import Detail from "@pages/community/Detail";
 import List from "@pages/community/List";
 import New from "@pages/community/New";
-import CommentList from "@pages/community/CommentList";
 import Login from "@pages/user/Login";
 import Signup from "@pages/user/Signup";
 import { createBrowserRouter } from "react-router-dom";
@@ -420,13 +396,7 @@ const router = createBrowserRouter([
       },
       {
         path: ":type/:_id",
-        element: <Detail />,
-        children: [
-          {
-            index: true,
-            element: <CommentList />
-          }
-        ]
+        element: <Detail />
       },
       {
         path: ":type/new",
@@ -455,13 +425,13 @@ export default router;
 #### App.jsx 파일에서 jsx 부분을 각 컴포넌트로 분리
 * components/layout/Header.jsx
 ```jsx
-function Header() {
+export default function Header(){
   return (
     <header className="px-8 min-w-80 bg-slate-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 transition-color duration-500 ease-in-out">
       <nav className="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
         <div className="w-1/2 order-1 md:w-auto">
           <a href="/" className="flex items-center gap-2">
-            <img className="mr-3 h-6 sm:h-9" src="/images/favicon.svg" alt="로고 이미지" />
+            <img className="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
             <span className="text-lg font-bold">멋사컴</span>
           </a>
         </div>
@@ -475,22 +445,11 @@ function Header() {
 
         <div className="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
 
-          {/* 로그인 후 */}
-          {/*
-          <p className="flex items-center">
-            <img className="w-8 rounded-full mr-2" src="https://api.fesp.shop/files/00-sample/user-muzi.webp" />
-            용쌤님 :)
-            <button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/login' }>로그아웃</button>
-          </p>
-          */}
-
-          {/* 로그인 전 */}
           <div className="flex justify-end">
-            <button type="button" className="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/login' }>로그인</button>
-            <button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/signup' }>회원가입</button>
+            <a href="/user/login" className="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+            <a href="/user/signup" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
           </div>
 
-          {/* 라이트/다크 모드 전환 */}
           <button
             type="button"
             data-toggle-dark="dark"
@@ -524,13 +483,11 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
 ```
 
 * components/layout/Footer.jsx
 ```jsx
-function Footer() {
+export default function Footer(){
   return (
     <footer className="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
       <div className="min-w-[320px] flex flex-wrap gap-4 justify-center items-center text-sm text-slate-400">
@@ -548,15 +505,13 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;
 ```
 
 * pages/community/index.jsx
 ```jsx
-function Community() {
+export default function Community(){
   return (
-    <main className="container mx-auto mt-10 p-4">
+    <main className="container mx-auto mt-10 p-4 transition-color">
       <section className="text-center">
         <h1 className="text-4xl font-bold mb-4">멋사컴에 오신 것을 환영합니다!</h1>
         <p className="text-xl mb-6">다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요.</p>
@@ -586,17 +541,16 @@ function Community() {
     </main>
   );
 }
-
-export default Community;
 ```
 
 * App.jsx
 ```jsx
-import Header from '@components/layout/Header';
-import Footer from '@components/layout/Footer';
-import Community from '@pages/community';
+import Footer from "@/components/layout/Footer"
+import Header from "@/components/layout/Header"
+import Community from "@/pages/community"
 
 function App() {
+
   return (
     <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
       <Header />
@@ -612,24 +566,22 @@ export default App;
 * <http://localhost:5173> 접속 테스트
 
 ### 레이아웃 작성
-#### components/layout/index.jsx
+#### components/layout/index.html
 * App.jsx를 복사해서 수정
 ```jsx
-import Header from '@components/layout/Header';
-import Footer from '@components/layout/Footer';
-import { Outlet } from 'react-router-dom';
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import { Outlet } from "react-router-dom";
 
-function Layout() {
+export default function Layout(){
   return (
     <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
       <Header />
       <Outlet />
       <Footer />
     </div>
-  )
+  );
 }
-
-export default Layout;
 ```
 
 #### App.jsx
@@ -651,17 +603,17 @@ export default App;
 ### 페이지 컴포넌트 작성
 #### 게시글 목록 조회
 * pages/community/List.jsx
+  - sample/info/index.html 복사
+
 ```jsx
-function List() {
+export default function List(){
   return (
     <main className="min-w-80 p-10">
       <div className="text-center py-4">
         <h2 className="pb-4 text-2xl font-bold text-gray-700 dark:text-gray-200">정보 공유</h2>
       </div>
       <div className="flex justify-end mr-4">
-        
-        {/* 검색 */}
-        <form onSubmit={ (event) => { event.preventDefault(); location.href='' } }>
+        <form action="#">
           <input
             className="dark:bg-gray-600 bg-gray-100 p-1 rounded"
             type="text"
@@ -669,8 +621,7 @@ function List() {
           />
           <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">검색</button>
         </form>
-
-        <button type="button" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info/new' }>글작성</button>
+        <a href="/info/new" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">글작성</a>
       </div>
       <section className="pt-10">
         <table className="border-collapse w-full table-fixed">
@@ -693,24 +644,9 @@ function List() {
             </tr>
           </thead>
           <tbody>
-            {/* 로딩 상태 표시 */}
-            {/*
-              <tr>
-                <td colSpan="6" className="py-20 text-center">로딩중...</td>
-              </tr>
-            */}
-
-            {/* 에러 메세지 출력 */}
-            {/*
-              <tr>
-                <td colSpan="6" className="py-20 text-center">에러 메세지</td>
-              </tr>
-            */}
-
-            {/* 본문 출력 */}
             <tr className="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
               <td className="p-2 text-center">2</td>
-              <td className="p-2 truncate indent-4 cursor-pointer" onClick={ () => location.href='/info/2' }>안녕하세요.</td>
+              <td className="p-2 truncate indent-4"><a href="/info/2" className="cursor-pointer">안녕하세요.</a></td>
               <td className="p-2 text-center truncate">용쌤</td>
               <td className="p-2 text-center hidden sm:table-cell">29</td>
               <td className="p-2 text-center hidden sm:table-cell">2</td>
@@ -718,7 +654,7 @@ function List() {
             </tr>
             <tr className="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
               <td className="p-2 text-center">1</td>
-              <td className="p-2 truncate indent-4 cursor-pointer" onClick={ () => location.href='/info/1' }>좋은 소식이 있습니다.</td>
+              <td className="p-2 truncate indent-4"><a href="/info/1" className="cursor-pointer">좋은 소식이 있습니다.</a></td>
               <td className="p-2 text-center truncate">제이지</td>
               <td className="p-2 text-center hidden sm:table-cell">22</td>
               <td className="p-2 text-center hidden sm:table-cell">5</td>
@@ -727,11 +663,9 @@ function List() {
           </tbody>
         </table>
         <hr />
-
-        {/* 페이지네이션 */}
         <div>
           <ul className="flex justify-center gap-3 m-4">
-            <li className="text-bold text-blue-700">
+            <li className="font-bold text-blue-700">
               <a href="/info?page=1">1</a>
             </li>
             <li>
@@ -743,74 +677,83 @@ function List() {
     </main>
   );
 }
-
-export default List;
 ```
 
 * <http://localhost:5173/info> 접속 테스트
 
 #### 게시글 상세 조회
 * pages/community/Detail.jsx
+  - sample/info/1/index.html 복사
+
 ```jsx
-function Detail() {
+export default function Detail(){
   return (
     <main className="container mx-auto mt-4 px-4">
-
       <section className="mb-8 p-4">
+        <form action="/info">
         <div className="font-semibold text-xl">제목 : 좋은 소식이 있습니다.</div>
-        <div className="text-right text-gray-400">작성자 : 제이지</div>
-        <div className="mb-4">
-          <div>
-            <pre className="font-roboto w-full p-2 whitespace-pre-wrap">좋은 소식을 가지고 왔습니다.<br />오늘 드디어 최종 면접을 합니다.<br />많이 응원해 주세요^^</pre>
+          <div className="text-right text-gray-400">작성자 : 제이지</div>
+          <div className="mb-4">
+            <div>
+              <pre className="font-roboto w-full p-2 whitespace-pre-wrap">좋은 소식을 가지고 왔습니다.<br />오늘 드디어 최종 면접을 합니다.<br />많이 응원해 주세요^^</pre>
+            </div>
+            <hr/>
           </div>
-          <hr/>
-        </div>
-        <div className="flex justify-end my-4">
-          <button type="button" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>목록</button>
-          <button type="button" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info/1/edit' }>수정</button>
-          <button type="button" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info' }>삭제</button>
-        </div>
+          <div className="flex justify-end my-4">
+            <a href="/info" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">목록</a>
+            <a href="/info/1/edit" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</a>
+            <button type="submit" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+          </div>
+        </form>
       </section>
+
+      {/* 부분 화면 로딩중 */}
+      {/*
+      <div className="flex flex-col items-center">
+        <h3 className="mb-4 text-lg font-semibold">잠시만 기다려주세요.</h3>
+        <span>로딩중...</span>
+      </div>
+      */}
       
-      {/* 댓글 목록 */}
       <section className="mb-8">
         <h4 className="mt-8 mb-4 ml-2">댓글 2개</h4>
-
-        {/* 댓글 */}
         <div className="shadow-md rounded-lg p-4 mb-4">
           <div className="flex justify-between items-center mb-2">
             <img
               className="w-8 mr-2 rounded-full"
-              src="http://api.fesp.shop/files/00-sample/user-muzi.webp"
+              src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
               alt="어피치 프로필 이미지"
             />
             <a href="" className="text-orange-400">어피치</a>
             <time className="ml-auto text-gray-500" dateTime="2024.07.02 14:11:22">2024.07.02 14:11:22</time>
           </div>
-          <pre className="whitespace-pre-wrap text-sm">화이팅!</pre>
+          <div className="flex justify-between items-center mb-2">
+            <form action="#">
+              <pre className="whitespace-pre-wrap text-sm">화이팅!</pre>
+              <button type="submit" className="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+            </form>
+          </div>  
         </div>
-
-        {/* 댓글 */}
         <div className="shadow-md rounded-lg p-4 mb-4">
           <div className="flex justify-between items-center mb-2">
             <img
               className="w-8 mr-2 rounded-full"
-              src="http://api.fesp.shop/files/00-sample/user-muzi.webp"
+              src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
               alt="무지 프로필 이미지"
             />
             <a href="" className="text-orange-400">무지</a>
             <time className="ml-auto text-gray-500" dateTime="2024.07.07 12:34:56">2024.07.07 12:34:56</time>
           </div>
           <div className="flex justify-between items-center mb-2">
-            <pre className="whitespace-pre-wrap text-sm">축하해요~~</pre>
-            <button type="button" className="bg-red-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
-          </div>
+            <form action="#">
+              <pre className="whitespace-pre-wrap text-sm">축하해요~~~</pre>
+              <button type="submit" className="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+            </form>
+          </div>  
         </div>
-
-        {/* 댓글 입력 */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h4 className="mb-4">새로운 댓글을 추가하세요.</h4>
-          <form>
+          <form action="#">
             <div className="mb-4">
               <textarea
                 rows="3"
@@ -818,15 +761,9 @@ function Detail() {
                 className="block p-2 w-full text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                 placeholder="내용을 입력하세요."
                 name="comment"></textarea>
-    
-
-              {/* 에러 메세지 출력 */}
-              {/*
               <p className="ml-2 mt-1 text-sm text-red-500">
-                에러 메세지
+                내용은 필수입니다.
               </p>
-              */}
-              
             </div>
             <button type="submit" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
           </form>
@@ -835,74 +772,77 @@ function Detail() {
     </main>
   );
 }
-
-export default Detail;
 ```
 
 * <http://localhost:5173/info/1> 접속 테스트
 
 #### 게시글 수정
 * pages/community/Edit.jsx
+  - sample/info/1/edit/index.html 복사
+
 ```jsx
-function Edit() {
+export default function Edit(){
   return (
     <main className="min-w-[320px] p-4">
       <div className="text-center py-4">
         <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
       </div>
       <section className="mb-8 p-4">
-        <form onSubmit={ (event) => { event.preventDefault(); history.back(); } }>
+        <form action="/info/1">
           <div className="my-4">
             <label className="block text-lg content-center" htmlFor="title">제목</label>
             <input
+              id="title"
               type="text"
               placeholder="제목을 입력하세요." 
               className="w-full py-2 px-4 border rounded-md dark:bg-gray-700 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               name="title"
-              defaultValue="안녕하세요."
+              value="좋은 소식이 있습니다."
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">제목은 필수 입니다.</p>
           </div>
           <div className="my-4">
             <label className="block text-lg content-center" htmlFor="content">내용</label>
             <textarea 
+              id="content"
               rows="15" 
               placeholder="내용을 입력하세요."
               className="w-full p-4 text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               name="content"
-            >가입인사 드립니다
-반가워요</textarea>
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            >좋은 소식을 가지고 왔습니다.
+오늘 드디어 최종 면접을 합니다.
+많이 응원해 주세요^^</textarea>
+
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">내용은 필수입니다.</p>
           </div>
           <hr />
           <div className="flex justify-end my-6">
             <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
-            <button type="reset" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
+            <a href="/info/1" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
           </div>
         </form>
       </section>
     </main>
   );
 }
-
-export default Edit;
 ```
 
 * <http://localhost:5173/info/1/edit> 접속 테스트
 
 #### 게시글 등록
 * pages/community/New.jsx
+  - sample/info/new/index.html 복사
+
 ```jsx
-function New() {
+export default function New(){
   return (
     <main className="min-w-[320px] p-4">
       <div className="text-center py-4">
         <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 등록</h2>
       </div>
       <section className="mb-8 p-4">
-        <form onSubmit={ (event) => { event.preventDefault(); history.back();} }>
+        <form action="/info/1">
           <div className="my-4">
             <label className="block text-lg content-center" htmlFor="title">제목</label>
             <input
@@ -912,49 +852,47 @@ function New() {
               className="w-full py-2 px-4 border rounded-md dark:bg-gray-700 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               name="title"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">제목은 필수입니다.</p>
           </div>
           <div className="my-4">
             <label className="block text-lg content-center" htmlFor="content">내용</label>
-            <textarea
+            <textarea 
               id="content"
               rows="15" 
               placeholder="내용을 입력하세요."
               className="w-full p-4 text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               name="content"
             ></textarea>
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">내용은 필수입니다.</p>
           </div>
           <hr />
           <div className="flex justify-end my-6">
             <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">등록</button>
-            <button type="reset" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
+            <a href="/info" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
           </div>
         </form>
       </section>
     </main>
   );
 }
-
-export default New;
 ```
 
 * <http://localhost:5173/info/new> 접속 테스트
 
 #### 회원 가입
 * pages/user/Signup.jsx
+  - sample/user/signup/index.html 복사
+
 ```jsx
-function Signup() {
+export default function Signup(){
   return (
     <main className="min-w-80 flex-grow flex items-center justify-center">
-      <div className="p-8  border border-gray-200 rounded-lg w-full max-w-md dark:bg-gray-600 dark:border-0">
+      <div className="p-8 border border-gray-200 rounded-lg w-full max-w-md dark:bg-gray-600 dark:border-0">
         <div className="text-center py-4">
           <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200">회원 가입</h2>
         </div>
 
-        <form onSubmit={ (event) => { event.preventDefault(); history.back(); } }>
+        <form action="/">
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="name">이름</label>
             <input
@@ -964,8 +902,7 @@ function Signup() {
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-400 dark:bg-gray-700"
               name="name"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">이름은 필수입니다.</p>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="email">이메일</label>
@@ -976,8 +913,7 @@ function Signup() {
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-400 dark:bg-gray-700"
               name="email"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">이메일은 필수입니다.</p>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="password">비밀번호</label>
@@ -988,41 +924,40 @@ function Signup() {
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-400 dark:bg-gray-700"
               name="password"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">비밀번호는 필수입니다.</p>
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="profileImage">프로필 이미지</label>
+            <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="attach">프로필 이미지</label>
             <input
               type="file"
-              id="profileImage"
+              id="attach"
               accept="image/*"
               placeholder="이미지를 선택하세요"
               className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700"
-              name="profileImage"
+              name="attach"
             />
           </div>
 
           <div className="mt-10 flex justify-center items-center">
-            <button type="submit" className="bg-orange-500 py-1 px-4 text-white font-semibold ml-2 text-base hover:bg-amber-400 rounded">회원가입</button>
-            <button type="reset" className="bg-gray-900 py-1 px-4 text-white font-semibold ml-2 text-base hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
+            <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</button>
+            <a href="/" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
           </div>
         </form>
       </div>
     </main>
   );
 }
-
-export default Signup;
 ```
 
 * <http://localhost:5173/user/signup> 접속 테스트
 
 #### 로그인
 * pages/user/Login.jsx
+  - sample/user/login/index.html 복사
+
 ```jsx
-function Login() {
+export default function Login(){
   return (
     <main className="min-w-80 flex-grow flex items-center justify-center">
       <div className="p-8 border border-gray-200 rounded-lg w-full max-w-md dark:bg-gray-600 dark:border-0">
@@ -1030,7 +965,7 @@ function Login() {
           <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">로그인</h2>
         </div>
 
-        <form onSubmit={ (event) => { event.preventDefault(); history.back(); } }>
+        <form action="/">
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="email">이메일</label>
             <input
@@ -1038,11 +973,9 @@ function Login() {
               type="email"
               placeholder="이메일을 입력하세요"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-400 dark:bg-gray-700"
-              value="u1@market.com"
               name="email"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">이메일은 필수입니다.</p>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="password">비밀번호</label>
@@ -1051,11 +984,9 @@ function Login() {
               type="password"
               placeholder="비밀번호를 입력하세요"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-400 dark:bg-gray-700"
-              value="11111111"
               name="password"
             />
-            {/* 입력값 검증 에러 출력 */}
-            {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">에러 메세지</p> */}
+            <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">비밀번호는 필수입니다.</p>
             <a href="#" className="block mt-6 ml-auto text-gray-500 text-sm dark:text-gray-300 hover:underline">비밀번호를 잊으셨나요?</a>
           </div>
           <div className="mt-10 flex justify-center items-center">
@@ -1067,19 +998,20 @@ function Login() {
     </main>
   );
 }
-
-export default Login;
 ```
 
 * <http://localhost:5173/user/login> 접속 테스트
 
 ### 에러 페이지
 * pages/Error.jsx
-```jsx
-import Footer from "@components/layout/Footer";
-import Header from "@components/layout/Header";
+  - components/layout/index.jsx 복사
+  - sample/error.html 복사
 
-function Error() {
+```jsx
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+
+export default function Error(){
   return (
     <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
       <Header />
@@ -1092,11 +1024,9 @@ function Error() {
         </button>
       </div>
       <Footer />
-    </div>
+    </div>    
   );
 }
-
-export default Error;
 ```
 
 * <http://localhost:5173/user/signup/hello> 접속 테스트
@@ -1105,13 +1035,7 @@ export default Error;
 #### Button
 * components/Button.jsx
 ```jsx
-function Button({
-  children,
-  type = 'button',
-  bgColor = 'orange',
-  size = 'md',
-  ...rest
-}) {
+export default function Button({ children, type = 'button', bgColor = 'orange', size = 'md', ...rest }) {
   let btnColor = {
     gray: `bg-gray-900`,
     orange: 'bg-orange-500',
@@ -1133,8 +1057,6 @@ function Button({
     </button>
   );
 }
-
-export default Button;
 ```
 
 #### Submit
@@ -1142,58 +1064,41 @@ export default Button;
 ```jsx
 import Button from "@components/Button";
 
-function Submit({ children, ...rest }){
+export default function Submit({ children, ...rest }){
   return <Button type="submit" { ...rest }>{ children }</Button>
 }
-
-export default Submit;
 ```
 
 #### Button, Submit 적용
-##### components/layout/Header.jsx
+##### pages/Error.jsx
 * 적용전
 ```jsx
-<button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/' }>로그아웃</button>
-<button type="button" className="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/login' }>로그인</button>
-<button type="button" className="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/user/signup' }>회원가입</button>
+<button className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600">
+  ⚙️ 문제 해결하기
+</button>
 ```
 
 * 적용후
 ```jsx
-<Button size="md" bgColor="gray" onClick={ () => location.href='/' }>로그아웃</Button>
-<Button size="sm" onClick={ () => location.href='/user/login' }>로그인</Button>
-<Button size="sm" bgColor="gray" onClick={ () => location.href='/user/signup' }>회원가입</Button>
-```
-
-##### pages/community/List.jsx
-* 적용전
-```jsx
-<button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">검색</button>
-<button type="button" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info/new' }>글작성</button>
-```
-
-* 적용후
-```jsx
-<Submit>검색</Submit>
-<Button onClick={ () => location.href='/info/new' }>글작성</Button>
+<Button bgColor="red">
+  ⚙️ 문제 해결하기
+</Button>
 ```
 
 ##### pages/community/Detail.jsx
 * 적용전
 ```jsx
-<button type="button" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>목록</button>
-<button type="button" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info/1/edit' }>수정</button>
-<button type="button" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => location.href='/info' }>삭제</button>
-<button type="button" className="bg-red-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+<button type="submit" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+<button type="submit" className="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
+<button type="submit" className="bg-red-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
 <button type="submit" className="bg-orange-500 py-1 px-4 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">댓글 등록</button>
 ```
 
 * 적용후
 ```jsx
-<Button onClick={ () => history.back() }>목록</Button>
-<Button bgColor="gray" onClick={ () => location.href='/info/1/edit' }>수정</Button>
-<Button bgColor="red" onClick={ () => location.href='/info' }>삭제</Button>
-<Button bgColor="red" size="sm">삭제</Button>
+<Submit bgColor="red">삭제</Submit>
+<Submit bgColor="red" size="sm">삭제</Submit>
+<Submit bgColor="red" size="sm">삭제</Submit>
 <Submit size="sm">댓글 등록</Submit>
 ```
 
@@ -1201,39 +1106,33 @@ export default Submit;
 * 적용전
 ```jsx
 <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
-<button type="reset" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
 ```
 
 * 적용후
 ```jsx
 <Submit>수정</Submit>
-<Button type="reset" bgColor="gray" onClick={ () => history.back() }>취소</Button>
+```
+
+##### pages/community/List.jsx
+* 적용전
+```jsx
+<button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">검색</button>
+```
+
+* 적용후
+```jsx
+<Submit>검색</Submit>
 ```
 
 ##### pages/community/New.jsx
 * 적용전
 ```jsx
 <button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">등록</button>
-<button type="reset" className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
 ```
 
 * 적용후
 ```jsx
 <Submit>등록</Submit>
-<Button type="reset" bgColor="gray" onClick={ () => history.back() }>취소</Button>
-```
-
-##### pages/user/Signup.jsx
-* 적용전
-```jsx
-<button type="submit" className="bg-orange-500 py-1 px-4 text-white font-semibold ml-2 text-base hover:bg-amber-400 rounded">회원가입</button>
-<button type="reset" className="bg-gray-900 py-1 px-4 text-white font-semibold ml-2 text-base hover:bg-amber-400 rounded" onClick={ () => history.back() }>취소</button>
-```
-
-* 적용후
-```jsx
-<Submit>회원가입</Submit>
-<Button type="reset" bgColor="gray" onClick={ () => history.back() }>취소</Button>
 ```
 
 ##### pages/user/Login.jsx
@@ -1247,16 +1146,28 @@ export default Submit;
 <Submit>로그인</Submit>
 ```
 
+##### pages/user/Signup.jsx
+* 적용전
+```jsx
+<button type="submit" className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</button>
+```
+
+* 적용후
+```jsx
+<Submit>회원가입</Submit>
+```
+
 ### 복잡한 컴포넌트 분리
 #### 페이지 네이션
 * components/Pagination.jsx
   - pages/community/List.jsx에서 페이지네이션 부분 이동
+
 ```jsx
-function Pagination() {
+export default function Pagination(){
   return (
     <div>
       <ul className="flex justify-center gap-3 m-4">
-        <li className="text-bold text-blue-700">
+        <li className="font-bold text-blue-700">
           <a href="/info?page=1">1</a>
         </li>
         <li>
@@ -1266,37 +1177,35 @@ function Pagination() {
     </div>
   );
 }
-
-export default Pagination;
 ```
 
 #### 검색
 * components/Search.jsx
   - pages/community/List.jsx에서 검색 부분 이동
-```jsx
-import Submit from "@components/Submit";
 
-function Search() {
+```jsx
+import Submit from "@/components/Submit";
+
+export default function Search(){
   return (
-    <form onSubmit={ (event) => { event.preventDefault(); location.href='' } }>
+    <form action="#">
       <input
         className="dark:bg-gray-600 bg-gray-100 p-1 rounded"
         type="text"
         name="keyword"
-      />
+      />          
       <Submit>검색</Submit>
     </form>
   );
 }
-
-export default Search;
 ```
 
 #### 라이트/다크 테마
 * components/Theme.jsx
   - components/layout/Header.jsx에서 테마 부분 이동
+
 ```jsx
-function Theme() {
+export default function Theme(){
   return (
     <button
       type="button"
@@ -1327,8 +1236,6 @@ function Theme() {
     </button>
   );
 }
-
-export default Theme;
 ```
 
 ### 링크 수정
@@ -1342,46 +1249,18 @@ import { Link } from "react-router-dom";
   - `<a href` 찾아 바꾸기 `<Link to`
   - `</a>` 찾아 바꾸기 `</Link>`
 
-* 대상 페이지
-  - components/layout/Footer.jsx
-  - components/layout/Header.jsx
-  - components/Pagination.jsx
-  - pages/community/Detail.jsx
-  - pages/community/index.jsx
-  - pages/user/Login.jsx
-
-#### location.href 대신 useNavigate() 훅으로 수정
-* location.href로 페이지 이동시 새로고침이 발생하므로
-```jsx
-onClick={() => location.href='/info' }
-```
-
-* 다음처럼 수정
-```jsx
-import { useNavigate } from 'react-router-dom';
-...
-const navigate = useNavigate();
-...
-onClick={ () => navigate(`/info`) }
-```
-
-* 대상 페이지
-  - component/layout/Header.jsx
-  - pages/community/Detail.jsx
-  - pages/community/List.jsx
-
 ### 자식 컴포넌트 분리
 #### 댓글 입력 화면
 * pages/community/CommentNew.jsx
   - pages/community/Detail.jsx에서 이동
 ```jsx
-import Button from "@components/Button";
+import Submit from "@/components/Submit";
 
-function CommentNew() {
+export default function CommentNew(){
   return (
     <div className="p-4 border border-gray-200 rounded-lg">
       <h4 className="mb-4">새로운 댓글을 추가하세요.</h4>
-      <form>
+      <form action="#">
         <div className="mb-4">
           <textarea
             rows="3"
@@ -1390,13 +1269,9 @@ function CommentNew() {
             placeholder="내용을 입력하세요."
             name="comment"></textarea>
 
-
-          {/* 에러 메세지 출력 */}
-          {/*
           <p className="ml-2 mt-1 text-sm text-red-500">
-            에러 메세지
+            내용은 필수입니다.
           </p>
-          */}
           
         </div>
         <Submit size="sm">댓글 등록</Submit>
@@ -1404,76 +1279,72 @@ function CommentNew() {
     </div>
   );
 }
-
-export default CommentNew;
 ```
 
 #### 댓글 목록
 * pages/community/CommentList.jsx
   - pages/community/Detail.jsx에서 이동
 ```jsx
-import Button from "@components/Button";
-import CommentNew from "@pages/community/CommentNew";
-import { Link } from "react-router-dom";
+import Submit from "@/components/Submit";
+import CommentNew from "@/pages/community/CommentNew";
 
-function CommentList() {
+export default function CommentList(){
   return (
     <section className="mb-8">
       <h4 className="mt-8 mb-4 ml-2">댓글 2개</h4>
-      
-      {/* 댓글 */}
+
       <div className="shadow-md rounded-lg p-4 mb-4">
         <div className="flex justify-between items-center mb-2">
           <img
             className="w-8 mr-2 rounded-full"
-            src="http://api.fesp.shop/files/00-sample/user-muzi.webp"
+            src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
             alt="어피치 프로필 이미지"
           />
-          <Link to="" className="text-orange-400">어피치</Link>
+          <a href="" className="text-orange-400">어피치</a>
           <time className="ml-auto text-gray-500" dateTime="2024.07.02 14:11:22">2024.07.02 14:11:22</time>
         </div>
-        <pre className="whitespace-pre-wrap text-sm">화이팅!</pre>
+        <div className="flex justify-between items-center mb-2">
+          <form action="#">
+            <pre className="whitespace-pre-wrap text-sm">화이팅!</pre>
+            <Submit bgColor="red" size="sm">삭제</Submit>
+          </form>
+        </div>  
       </div>
 
-      {/* 댓글 */}
       <div className="shadow-md rounded-lg p-4 mb-4">
         <div className="flex justify-between items-center mb-2">
           <img
             className="w-8 mr-2 rounded-full"
-            src="http://api.fesp.shop/files/00-sample/user-muzi.webp"
+            src="https://api.fesp.shop/files/00-sample/user-muzi.webp"
             alt="무지 프로필 이미지"
           />
-          <Link to="" className="text-orange-400">무지</Link>
+          <a href="" className="text-orange-400">무지</a>
           <time className="ml-auto text-gray-500" dateTime="2024.07.07 12:34:56">2024.07.07 12:34:56</time>
         </div>
         <div className="flex justify-between items-center mb-2">
-          <pre className="whitespace-pre-wrap text-sm">축하해요~~</pre>
-          <Button bgColor="red" size="sm">삭제</Button>
-        </div>
+          <form action="#">
+            <pre className="whitespace-pre-wrap text-sm">축하해요~~~</pre>
+            <Submit bgColor="red" size="sm">삭제</Submit>
+          </form>
+        </div>  
       </div>
 
-      {/* 댓글 입력 */}
       <CommentNew />
 
     </section>
   );
 }
-
-export default CommentList;
 ```
 
 #### 게시물 목록의 아이템
 * pages/community/ListItem.jsx
   - pages/community/List.jsx에서 이동
 ```jsx
-import { useNavigate } from "react-router-dom";
-
-function ListItem() {
-  const navigate = useNavigate();
+export default function ListItem(){
   return (
     <tr className="border-b border-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
       <td className="p-2 text-center">2</td>
-      <td className="p-2 truncate indent-4 cursor-pointer" onClick={ () => navigate(`/info/2`) }>안녕하세요.</td>
+      <td className="p-2 truncate indent-4"><a href="/info/2" className="cursor-pointer">안녕하세요.</a></td>
       <td className="p-2 text-center truncate">용쌤</td>
       <td className="p-2 text-center hidden sm:table-cell">29</td>
       <td className="p-2 text-center hidden sm:table-cell">2</td>
@@ -1481,8 +1352,6 @@ function ListItem() {
     </tr>
   );
 }
-
-export default ListItem;
 ```
 
 ## API 테스트
@@ -1706,3 +1575,4 @@ if(res.status === 200){
     + post_id: 게시물 _id
     + reply_id: 댓글 _id
   - Create
+

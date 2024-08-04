@@ -1,0 +1,20 @@
+meta {
+  name: 댓글 등록2
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/posts/9/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "content": "비가오니까 듣고 싶어요.",
+      "extra": {
+        "videoId": "NIPtyAKxlRs"
+      }
+  }
+}

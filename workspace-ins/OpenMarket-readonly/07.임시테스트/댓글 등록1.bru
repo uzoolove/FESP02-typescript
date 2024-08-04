@@ -1,0 +1,20 @@
+meta {
+  name: 댓글 등록1
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/posts/9/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "content": "오늘 면접을 잘 못본것 같아서 기운이 나질 않습니다. GD의 삐딱하게 틀어주세요. 삐뚤어질테야!",
+      "extra": {
+        "videoId": "RKhsHGfrFmY"
+      }
+  }
+}

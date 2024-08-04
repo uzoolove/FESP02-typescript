@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 수정 - 멋사컴</title>
+
+    <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
+    <meta name="keywords" content="커뮤니티, 소통, 포럼, 관심사, 온라인 모임, 커뮤니티 서비스" />
+    <meta name="author" content="FESP 2기" />
+
+    <meta property="og:title" content="게시글 수정" />
+    <meta property="og:description" content="게시글을 수정하세요." />
+    <meta property="og:image" content="/images/fesp.webp" />
+    <meta property="og:url" content="https://community.fesp.shop/info/1/edit" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="멋사컴" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  </head>
+  <body>
+    <div id="root">
+
+      <div class="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
+
+        <header class="px-8 min-w-80 bg-slate-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 transition-color duration-500 ease-in-out">
+          <nav class="flex flex-wrap justify-center items-center p-4 md:flex-nowrap md:justify-between">
+            <div class="w-1/2 order-1 md:w-auto">
+              <a href="/" class="flex items-center gap-2">
+                <img class="mr-3 h-6 sm:h-9" src="/images/favicon.svg" width="40" height="40" alt="로고 이미지" />
+                <span class="text-lg font-bold">멋사컴</span>
+              </a>
+            </div>
+            <div class="w-auto order-2 text-base mt-4 md:mt-0">
+              <ul class="flex items-center gap-6 uppercase">
+                <li class="hover:text-amber-500 hover:font-semibold"><a href="/info">정보공유</a></li>
+                <li class="hover:text-amber-500 hover:font-semibold"><a href="/free">자유게시판</a></li>
+                <li class="hover:text-amber-500 a:font-semibold"><a href="/qna">질문게시판</a></li>
+              </ul>
+            </div>
+
+            <div class="w-1/2 order-1 flex justify-end items-center md:order-2 md:w-auto">
+
+              <div class="flex justify-end">
+                <a href="/user/login" class="bg-orange-500 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">로그인</a>
+                <a href="/user/signup" class="bg-gray-900 py-1 px-2 text-sm text-white font-semibold ml-2 hover:bg-amber-400 rounded">회원가입</a>
+              </div>
+
+              <button
+                type="button"
+                data-toggle-dark="dark"
+                class="ml-4 flex items-center w-8 h-8 justify-center text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >
+                <svg
+                  data-toggle-icon="moon"
+                  class="w-3.5 h-3.5 hidden"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 20"
+                >
+                  <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"></path>
+                </svg>
+                <svg
+                  data-toggle-icon="sun"
+                  class="w-3.5 h-3.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"></path>
+                </svg>
+                <span class="sr-only">Toggle dark/light mode</span>
+              </button>
+
+            </div>
+          </nav>
+        </header>
+
+        <main class="min-w-[320px] p-4">
+          <div class="text-center py-4">
+            <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-200">게시글 수정</h2>
+          </div>
+          <section class="mb-8 p-4">
+            <form action="/info/1">
+              <div class="my-4">
+                <label class="block text-lg content-center" htmlFor="title">제목</label>
+                <input
+                  id="title"
+                  type="text"
+                  placeholder="제목을 입력하세요." 
+                  class="w-full py-2 px-4 border rounded-md dark:bg-gray-700 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  name="title"
+                  value="좋은 소식이 있습니다."
+                />
+
+                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">제목은 필수 입니다.</p>
+              </div>
+              <div class="my-4">
+                <label class="block text-lg content-center" htmlFor="content">내용</label>
+                <textarea 
+                  id="content"
+                  rows="15" 
+                  placeholder="내용을 입력하세요."
+                  class="w-full p-4 text-sm border rounded-lg border-gray-300 bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                  name="content"
+                >좋은 소식을 가지고 왔습니다.
+오늘 드디어 최종 면접을 합니다.
+많이 응원해 주세요^^</textarea>
+
+                <p class="ml-2 mt-1 text-sm text-red-500 dark:text-red-400">내용은 필수입니다.</p>
+              </div>
+              <hr />
+              <div class="flex justify-end my-6">
+                <button type="submit" class="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">수정</button>
+                <a href="/info/1" class="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">취소</a>
+              </div>
+            </form>
+          </section>
+        </main>
+        
+        <footer class="p-4 pb-12 w-full border-t border-t-slate-200  dark:border-t-slate-500 dark:bg-gray-600 text-gray-600 dark:text-white transition-color duration-500 ease-in-out">
+          <div class="min-w-[320px] flex flex-wrap gap-4 justify-center items-center text-sm text-slate-400">
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">약관</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">게시판 정책</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">회사소개</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">광고</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">마이비즈니스</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">제휴 제안</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">이용약관</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">개인정보취급방침</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">청소년보호 정책</a>
+            <a href="#" class="hover:font-semibold dark:hover:text-gray-200">고객센터</a>
+          </div>
+        </footer>
+
+      </div>
+
+    </div>
+  </body>
+</html>

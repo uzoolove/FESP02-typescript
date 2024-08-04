@@ -1,7 +1,7 @@
 meta {
   name: 게시물 목록 조회(댓글순 정렬)
   type: http
-  seq: 7
+  seq: 8
 }
 
 get {
@@ -10,7 +10,7 @@ get {
   auth: none
 }
 
-query {
+params:query {
   type: qna
   sort: {"repliesCount":-1}
 }

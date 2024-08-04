@@ -1,0 +1,19 @@
+meta {
+  name: 게시물 등록2
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/posts
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "music",
+      "title": "1일 DJ GD입니다.",
+      "content": "오늘의 1일 DJ GD입니다. 오늘의 컨셉은 잊지 못할 여름날의 추억입니다. 사연과 함께 많이 신청해 주세요."
+  }
+}

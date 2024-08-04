@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@recoil/*": ["src/recoil/*"],
+      "@zustand/*": ["src/zustand/*"],
+      "#types/*": ["src/types/*"],
+    },
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "allowJs": true, // 자바스크립트 파일을 타입스크립트 프로젝트에 포함
+    // "checkJs": true, // 자바스크립트 파일에 대한 타입체크 활성화
+
+  },
+  "include": ["src", "src/vite-env.d.ts"] // vite에서 제공하는 import.meta.env 등의 클라이언트용 타입 추가
+}
